@@ -7,9 +7,11 @@ import { QA } from "@/components/kasher/QA";
 import { About } from "@/components/kasher/About";
 import { Footer } from "@/components/kasher/Footer";
 import { useKasherMotion } from "@/hooks/use-kasher-motion";
+import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 
 const Index = () => {
   useKasherMotion();
+  useSmoothScroll();
   return (
     <div dir="rtl" lang="he" className="relative min-h-[100dvh] overflow-x-clip bg-paper font-body text-ink">
       <Header />
