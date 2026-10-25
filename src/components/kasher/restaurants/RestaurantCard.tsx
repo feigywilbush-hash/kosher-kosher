@@ -26,10 +26,7 @@ export function RestaurantCard({ r, onOpen }: { r: Restaurant; onOpen: (r: Resta
         </div>
         <h3 className="mb-0 mt-2 font-body text-[22px] font-bold leading-[1.25] [text-wrap:balance]">{r.name}</h3>
         <div className="mt-auto flex items-center justify-between gap-3 pt-5">
-          <span className="flex items-center gap-2">
-            <TypeTag type={r.type} />
-            {r.level === "מהדרין" && <span className="text-sm font-bold">מהדרין</span>}
-          </span>
+          <TypeTag type={r.type} />
           <button
             type="button"
             onClick={(e) => onOpen(r, e.currentTarget)}
