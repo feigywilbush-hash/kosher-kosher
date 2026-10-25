@@ -126,10 +126,10 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative grid flex-1 grid-cols-[repeat(auto-fit,minmax(min(100%,500px),1fr))] items-center gap-[clamp(40px,4.4vw,72px)]">
+        <div className="relative grid flex-1 grid-cols-[repeat(auto-fit,minmax(min(100%,500px),1fr))] items-center gap-[clamp(40px,4.4vw,72px)] max-[1210px]:gap-y-6">
           {/* Copy */}
-          <div className="relative z-[2] min-w-0">
-            <h1 className="mb-0 mt-[clamp(20px,2.2vw,30px)] font-display font-normal text-ink">
+          <div className="relative z-[2] min-w-0 max-[1210px]:contents">
+            <h1 className="max-[1210px]:order-1 mb-0 mt-[clamp(20px,2.2vw,30px)] font-display font-normal text-ink">
               <span className="block overflow-hidden pb-[.06em] pt-[.08em] text-[clamp(72px,20vw,80px)] cmp:text-[clamp(63px,6.95vw,125px)] leading-[.9] tracking-[-.01em]">
                 <span data-line="0" className="inline-block">
                   כשר <span className="text-blue">כשר.</span>
@@ -139,11 +139,11 @@ export function Hero() {
                 <span data-line="1" className="inline-block">הבית שלכם לכשרות בעולם, מבית ועד רבני אירופה</span>
               </span>
             </h1>
-            <p data-hero-in="250" className="mb-0 mt-[clamp(20px,2.2vw,30px)] max-w-[500px] text-[clamp(17px,1.3vw,20px)] leading-[1.65] text-muted [text-wrap:pretty]">
+            <p data-hero-in="250" className="max-[1210px]:order-3 mb-0 mt-[clamp(20px,2.2vw,30px)] max-[1210px]:mt-0 max-w-[500px] text-[clamp(17px,1.3vw,20px)] leading-[1.65] text-muted [text-wrap:pretty]">
               מסעדות בהשגחה, מוצרים מאושרים ורב אחראי שזמין לכם, בארץ ובעשרות יעדים בעולם. בודקים לפני שיוצאים, אוכלים בראש שקט כשמגיעים.
             </p>
 
-            <div data-hero-in="400" className="mt-[clamp(24px,2.6vw,38px)] w-full max-w-[600px]">
+            <div data-hero-in="400" className="max-[1210px]:order-4 mt-[clamp(24px,2.6vw,38px)] max-[1210px]:mt-0 w-full max-w-[600px]">
               <div role="group" aria-label="סוג חיפוש" className="mb-3.5 flex flex-col gap-2.5 cmp:flex-row">
                 {MODES.map((m) => {
                   const on = mode === m.id;
@@ -168,7 +168,7 @@ export function Hero() {
           </div>
 
           {/* Rotating destination dial */}
-          <div className="relative w-[min(100%,680px)] justify-self-center py-[clamp(18px,2vw,28px)]">
+          <div className="max-[1210px]:order-2 relative w-[min(100%,680px)] justify-self-center py-[clamp(18px,2vw,28px)]">
             <div
               onMouseEnter={() => (hoverRef.current = true)}
               onMouseLeave={() => (hoverRef.current = false)}
