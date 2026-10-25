@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState, type CSSProperties } from "re
 import { cn } from "@/lib/utils";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { COUNTRIES, DISHES, EASE_IO, TYPE_C, TYPE_DOT, asset } from "./data";
+import { SiteLink } from "./SiteLink";
 
 const MODES = [
   { id: "product", label: "בדיקת מוצר" },
@@ -10,7 +11,7 @@ const MODES = [
 
 const LINKS = [
   { t: "מוצרים כשרים", d: "בדיקה בסריקת ברקוד", href: "#scan" },
-  { t: "מסעדות כשרות", d: "לפי עיר וסוג", href: "#restaurants" },
+  { t: "מסעדות כשרות", d: "לפי עיר וסוג", href: "/restaurants" },
   { t: "כשרות בעולם", d: "יעדים ורבנים בחו״ל", href: "#world" },
   { t: "שאלות ותשובות", d: "שאלו את הרב", href: "#qa" },
 ];
@@ -288,9 +289,9 @@ export function Hero() {
           className="relative z-[2] mt-[clamp(36px,4vw,56px)] grid grid-cols-2 overflow-hidden rounded-[22px] bg-ink shadow-[0_30px_60px_-36px_rgba(12,23,51,.6)] cmp:grid-cols-4"
         >
           {LINKS.map((l, i) => (
-            <a
+            <SiteLink
               key={l.t}
-              href={l.href}
+              to={l.href}
               className={cn(
                 "flex flex-col gap-1.5 border-paper/[.14] px-[clamp(16px,1.6vw,24px)] py-[clamp(14px,1.4vw,20px)] text-paper transition-[background] duration-300 hover:bg-paper/[.08] hover:text-white",
                 i % 2 === 1 && "border-s",
@@ -304,7 +305,7 @@ export function Hero() {
               </span>
               <span className="font-display text-[clamp(22px,1.9vw,28px)] leading-[1.05]">{l.t}</span>
               <span className="text-[13px] text-mist">{l.d}</span>
-            </a>
+            </SiteLink>
           ))}
         </nav>
       </div>
