@@ -286,7 +286,7 @@ export function Hero() {
         <nav
           aria-label="קיצורי דרך"
           data-hero-in="700"
-          className="relative z-[2] mt-[clamp(36px,4vw,56px)] grid grid-cols-2 overflow-hidden rounded-[22px] bg-ink shadow-[0_30px_60px_-36px_rgba(12,23,51,.6)] cmp:grid-cols-4"
+          className="relative z-[2] mt-[clamp(36px,4vw,56px)] grid grid-cols-1 overflow-hidden rounded-[22px] bg-ink shadow-[0_30px_60px_-36px_rgba(12,23,51,.6)] cmp:grid-cols-4"
         >
           {LINKS.map((l, i) => (
             <SiteLink
@@ -294,9 +294,7 @@ export function Hero() {
               to={l.href}
               className={cn(
                 "flex flex-col gap-1.5 border-paper/[.14] px-[clamp(16px,1.6vw,24px)] py-[clamp(14px,1.4vw,20px)] text-paper transition-[background] duration-300 hover:bg-paper/[.08] hover:text-white",
-                i % 2 === 1 && "border-s",
-                i === 2 && "cmp:border-s",
-                i > 1 && "border-t cmp:border-t-0",
+                i > 0 && "border-t cmp:border-s cmp:border-t-0",
               )}
             >
               <span className="flex items-center justify-between">
