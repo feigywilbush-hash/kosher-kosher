@@ -6,6 +6,7 @@ import { TYPE_DOT, type KType } from "../data";
 import { SiteLink } from "../SiteLink";
 import { RestaurantCard } from "./RestaurantCard";
 import { RestaurantDialog } from "./RestaurantDialog";
+import { FilterSelect } from "./FilterSelect";
 
 const COUNTRY_ORDER = ["קפריסין", "יוון", "תאילנד", "הונגריה"];
 const COUNTRIES = [...new Set(RESTAURANTS.map((r) => r.country))].sort((a, b) => COUNTRY_ORDER.indexOf(a) - COUNTRY_ORDER.indexOf(b));
@@ -90,99 +91,70 @@ export function Directory() {
         </div>
 
         {/* Filters */}
-        <div data-hero-in="200" className="mt-[clamp(40px,4.4vw,72px)] flex flex-col gap-4 rounded-[24px] bg-paper p-[clamp(12px,1.4vw,20px)]">
-          <div className="flex flex-wrap items-center gap-3">
-            <div className="relative min-w-[min(100%,280px)] flex-1">
-              <label htmlFor="dir-q" className="sr-only">
-                חיפוש מסעדה
-              </label>
-              <Search size={20} strokeWidth={2} aria-hidden="true" className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-muted" />
-              <input
-                id="dir-q"
-                type="search"
-                value={rq}
-                onChange={(e) => withReset(setRq)(e.target.value)}
-                placeholder="שם מסעדה, עיר או מדינה"
-                autoComplete="off"
-                className="h-14 w-full rounded-full border-[1.5px] border-transparent bg-white pe-12 ps-[52px] text-[17px] text-ink outline-none transition-[border-color] duration-[250ms] focus:border-blue [&::-webkit-search-cancel-button]:hidden"
-              />
-              {rq && (
+        <div data-hero-in="200" className="mt-[clamp(40px,4.4vw,72px)] flex flex-wrap items-center gap-3 rounded-[24px] bg-paper p-[clamp(12px,1.4vw,20px)]">
+          <div className="relative min-w-[min(100%,220px)] flex-1 dsk:max-w-[340px]">
+            <label htmlFor="dir-q" className="sr-only">
+              חיפוש מסעדה
+            </label>
+            <Search size={20} strokeWidth={2} aria-hidden="true" className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-muted" />
+            <input
+              id="dir-q"
+              type="search"
+              value={rq}
+              onChange={(e) => withReset(setRq)(e.target.value)}
+              placeholder="שם מסעדה, עיר או מדינה"
+              autoComplete="off"
+              className="h-14 w-full rounded-full border-[1.5px] border-transparent bg-white pe-12 ps-[52px] text-[17px] text-ink outline-none transition-[border-color] duration-[250ms] focus:border-blue [&::-webkit-search-cancel-button]:hidden"
+            />
+            {rq && (
+              <button
+                type="button"
+                onClick={() => withReset(setRq)("")}
+                aria-label="ניקוי החיפוש"
+                className="absolute left-3 top-1/2 grid h-8 w-8 -translate-y-1/2 cursor-pointer place-items-center rounded-full border-none bg-paper text-ink hover:bg-ink hover:text-white"
+              >
+                <X size={16} strokeWidth={2} />
+              </button>
+            )}
+          </div>
+          <div role="group" aria-label="סינון לפי סוג" className="flex w-full gap-1 rounded-full bg-white p-1 cmp:w-auto">
+            {TYPES.map((t) => {
+              const on = type === t;
+              return (
                 <button
+                  key={t}
                   type="button"
-                  onClick={() => withReset(setRq)("")}
-                  aria-label="ניקוי החיפוש"
-                  className="absolute left-3 top-1/2 grid h-8 w-8 -translate-y-1/2 cursor-pointer place-items-center rounded-full border-none bg-paper text-ink hover:bg-ink hover:text-white"
+                  onClick={() => withReset(setType)(t)}
+                  aria-pressed={on}
+                  className={cn(
+                    "flex h-12 flex-1 cursor-pointer items-center justify-center gap-2 rounded-full border-none px-3 text-[15px] font-normal transition-all duration-[250ms] cmp:flex-none cmp:px-[18px]",
+                    on ? "bg-ink text-white" : "bg-transparent text-muted hover:text-ink",
+                  )}
                 >
-                  <X size={16} strokeWidth={2} />
+                  <span className={cn("h-2 w-2 rounded-full", t === "הכל" ? (on ? "bg-white" : "bg-ink") : TYPE_DOT[t])} />
+                  {t}
                 </button>
-              )}
-            </div>
-            <div role="group" aria-label="סינון לפי סוג" className="flex w-full gap-1 rounded-full bg-white p-1 cmp:w-auto">
-              {TYPES.map((t) => {
-                const on = type === t;
-                return (
-                  <button
-                    key={t}
-                    type="button"
-                    onClick={() => withReset(setType)(t)}
-                    aria-pressed={on}
-                    className={cn(
-                      "flex h-12 flex-1 cursor-pointer items-center justify-center gap-2 rounded-full border-none px-3 text-[15px] cmp:flex-none cmp:px-[18px] font-normal transition-all duration-[250ms]",
-                      on ? "bg-ink text-white" : "bg-transparent text-muted hover:text-ink",
-                    )}
-                  >
-                    <span className={cn("h-2 w-2 rounded-full", t === "הכל" ? (on ? "bg-white" : "bg-ink") : TYPE_DOT[t])} />
-                    {t}
-                  </button>
-                );
-              })}
-            </div>
+              );
+            })}
           </div>
-
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div role="group" aria-label="סינון לפי מדינה" className="flex flex-wrap gap-2">
-              {["הכל", ...COUNTRIES].map((c) => {
-                const on = country === c;
-                const n = countFor(c);
-                return (
-                  <button
-                    key={c}
-                    type="button"
-                    onClick={() => withReset(setCountry)(c)}
-                    aria-pressed={on}
-                    className={cn(
-                      "flex h-11 cursor-pointer items-center gap-2 rounded-full border-[1.5px] px-[18px] text-[15px] font-normal transition-all duration-[250ms]",
-                      on ? "border-ink bg-ink text-white" : "border-ink/[.18] bg-transparent text-ink hover:border-ink",
-                    )}
-                  >
-                    {c === "הכל" ? "כל המדינות" : c}
-                    <span className={cn("font-mono text-xs", on ? "text-white/70" : "text-muted")}>{n}</span>
-                  </button>
-                );
-              })}
-            </div>
-            <div role="group" aria-label="סינון לפי כשרות" className="flex flex-wrap gap-2">
-              {AUTHS.map((a) => {
-                const on = auth === a;
-                const n = RESTAURANTS.filter((r) => matches(r, false, true) && (a === "הכל" || r.authority === a)).length;
-                return (
-                  <button
-                    key={a}
-                    type="button"
-                    onClick={() => withReset(setAuth)(a)}
-                    aria-pressed={on}
-                    className={cn(
-                      "flex h-11 cursor-pointer items-center gap-2 rounded-full border-[1.5px] px-[18px] text-[15px] font-normal transition-all duration-[250ms]",
-                      on ? "border-ink bg-ink text-white" : "border-ink/[.18] bg-transparent text-ink hover:border-ink",
-                    )}
-                  >
-                    {AUTH_CHIP[a]}
-                    <span className={cn("font-mono text-xs", on ? "text-white/70" : "text-muted")}>{n}</span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+          <FilterSelect
+            label="מדינה:"
+            value={country}
+            onChange={withReset(setCountry)}
+            options={["הכל", ...COUNTRIES].map((c) => ({ value: c, label: c === "הכל" ? "כל המדינות" : c, count: countFor(c) }))}
+            className="min-w-[200px] flex-1 cmp:flex-none"
+          />
+          <FilterSelect<"הכל" | Authority>
+            label="כשרות:"
+            value={auth}
+            onChange={withReset(setAuth)}
+            options={AUTHS.map((a) => ({
+              value: a,
+              label: AUTH_CHIP[a],
+              count: RESTAURANTS.filter((r) => matches(r, false, true) && (a === "הכל" || r.authority === a)).length,
+            }))}
+            className="min-w-[200px] flex-1 cmp:flex-none"
+          />
         </div>
 
         {/* Results */}

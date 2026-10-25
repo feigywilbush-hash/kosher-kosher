@@ -34,7 +34,7 @@ export function RestaurantCard({ r, onOpen }: { r: Restaurant; onOpen: (r: Resta
             type="button"
             onClick={(e) => onOpen(r, e.currentTarget)}
             aria-label={`פרטים נוספים על ${r.name}`}
-            className="inline-flex h-10 flex-none cursor-pointer items-center gap-2 rounded-full border-[1.5px] border-ink bg-transparent px-4 text-sm font-bold text-ink transition-[background,color] duration-[250ms] hover:bg-ink hover:text-white"
+            className="inline-flex flex-none cursor-pointer items-center gap-2 border-none bg-transparent p-0 text-[15px] font-bold text-ink transition-colors duration-[250ms] hover:text-blue [&>span]:transition-transform [&>span]:duration-300 hover:[&>span]:-translate-x-1"
           >
             פרטים נוספים <span aria-hidden="true">←</span>
           </button>
