@@ -60,7 +60,7 @@ export function AddRestaurant() {
               <li key={s.n} className="grid grid-cols-[44px_minmax(0,1fr)] gap-3.5 border-b border-paper/[.14] px-1 py-[22px]">
                 <span className="pt-1 font-mono text-[13px] text-sky">{s.n}</span>
                 <span className="flex flex-col gap-1.5">
-                  <span className="font-display text-[clamp(26px,2.2vw,34px)] leading-none text-white">{s.t}</span>
+                  <span className="font-body text-[clamp(20px,1.6vw,24px)] font-bold leading-tight text-white">{s.t}</span>
                   <span className="text-base leading-[1.5] text-mist">{s.d}</span>
                 </span>
               </li>
