@@ -36,6 +36,8 @@ function Answer({ text }: { text: string }) {
   );
 }
 
+const STACKED = "(max-width: 1026px)";
+
 export function QA() {
   const reduced = useReducedMotion();
   const [openQ, setOpenQ] = useState(0);
@@ -44,6 +46,14 @@ export function QA() {
   const [draft, setDraft] = useState("");
   const [now, setNow] = useState(() => Date.now());
   const typeT = useRef<number>();
+  // Below the two-column breakpoint the chat opens right under the chosen question.
+  const [stacked, setStacked] = useState(() => typeof window !== "undefined" && window.matchMedia(STACKED).matches);
+  useEffect(() => {
+    const m = window.matchMedia(STACKED);
+    const on = () => setStacked(m.matches);
+    m.addEventListener("change", on);
+    return () => m.removeEventListener("change", on);
+  }, []);
 
   useEffect(() => {
     const t = setInterval(() => setNow(Date.now()), 10000);
@@ -59,8 +69,10 @@ export function QA() {
     typeT.current = window.setTimeout(() => setTyping(false), ms);
   };
 
-  const ask = (i: number) => {
+  const ask = (i: number, li: HTMLElement | null) => {
     setOpenQ(i);
+    // The chat moves under the new question, which can shift it up; bring it back into view.
+    if (stacked) requestAnimationFrame(() => li?.scrollIntoView({ block: "start" }));
     setCustom(null);
     showTyping(reduced ? 0 : 1100);
   };
@@ -76,6 +88,52 @@ export function QA() {
 
   const q = custom ?? QS[openQ].q;
   const a = custom != null ? "קיבלנו את השאלה. רב מהמחלקה יחזור אליכם בהקדם, ואפשר להמשיך גם בוואטסאפ." : QS[openQ].a;
+
+  const chat = (
+      <div data-reveal={stacked ? undefined : "200"} className={cn("flex flex-col overflow-hidden rounded-[28px] bg-ink shadow-[0_40px_80px_-40px_rgba(5,11,30,.8)]", stacked ? "mb-5 mt-1" : "min-h-[500px]")}>
+        <div className="flex items-center gap-3.5 border-b border-paper/10 px-[22px] py-[18px]">
+          <span aria-hidden="true" className="grid h-[46px] w-[46px] place-items-center rounded-full bg-blue font-display text-xl">
+            ש״ת
+          </span>
+          <span className="flex flex-col gap-1">
+            <span className="text-base font-bold">מחלקת שאלות ותשובות</span>
+            <span className="flex items-center gap-1.5 text-[13px] text-mist">
+              <span className="h-[7px] w-[7px] rounded-full bg-sky" />
+              זמינים לשאלות
+            </span>
+          </span>
+        </div>
+        <div
+          role="log"
+          aria-live="polite"
+          className="flex flex-1 flex-col gap-3.5 px-[22px] py-6"
+          style={{ backgroundImage: "radial-gradient(rgba(142,166,255,.08) 1px, transparent 1px)", backgroundSize: "18px 18px" }}
+        >
+          <span className="self-center rounded-full bg-paper/[.08] px-3 py-1 text-xs text-mist">היום</span>
+          <div className="max-w-[82%] self-end rounded-[20px_20px_20px_6px] bg-blue px-[18px] py-3.5 text-[17px] leading-[1.55] text-white">
+            {q}
+            <div className="mt-1.5 text-left text-[11px] opacity-75">{timeFmt.format(new Date(now))} ✓✓</div>
+          </div>
+          {typing ? <TypingDots /> : <Answer key={q + openQ} text={a} />}
+        </div>
+        <form onSubmit={send} className="flex gap-2.5 border-t border-paper/10 p-3.5">
+          <label htmlFor="ask-q" className="sr-only">
+            שאלה לרב
+          </label>
+          <input
+            id="ask-q"
+            value={draft}
+            onChange={(e) => setDraft(e.target.value)}
+            placeholder="כתבו שאלה משלכם…"
+            autoComplete="off"
+            className="h-[54px] min-w-0 flex-1 rounded-full border border-paper/[.14] bg-navy px-[22px] text-base text-paper outline-none focus:border-sky"
+          />
+          <button type="submit" aria-label="שליחת השאלה" className="h-[54px] w-[54px] flex-none cursor-pointer rounded-full border-none bg-accent text-xl text-white hover:bg-accent-hover">
+            ←
+          </button>
+        </form>
+      </div>
+  );
 
   return (
     <section
@@ -103,10 +161,10 @@ export function QA() {
           {QS.map((x, i) => {
             const on = custom == null && openQ === i;
             return (
-              <li key={i} className="flex flex-1">
+              <li key={i} className="flex flex-1 scroll-mt-[90px] flex-col">
                 <button
                   type="button"
-                  onClick={() => ask(i)}
+                  onClick={(e) => ask(i, e.currentTarget.parentElement)}
                   aria-pressed={on}
                   className={cn(
                     "grid w-full flex-1 cursor-pointer grid-cols-[44px_minmax(0,1fr)_14px] items-center gap-3.5 border-b border-paper/[.14] bg-transparent px-1 py-[22px] text-right text-[clamp(17px,1.35vw,21px)] leading-[1.45] transition-colors duration-[250ms] hover:text-white",
@@ -117,54 +175,13 @@ export function QA() {
                   <span className="[text-wrap:pretty]">{x.q}</span>
                   <span className={cn("h-2.5 w-2.5 rounded-full transition-[background] duration-[250ms]", on ? "bg-accent" : "bg-paper/[.18]")} />
                 </button>
+                {stacked && openQ === i && chat}
               </li>
             );
           })}
         </ol>
 
-        <div data-reveal="200" className="flex min-h-[500px] flex-col overflow-hidden rounded-[28px] bg-ink shadow-[0_40px_80px_-40px_rgba(5,11,30,.8)]">
-          <div className="flex items-center gap-3.5 border-b border-paper/10 px-[22px] py-[18px]">
-            <span aria-hidden="true" className="grid h-[46px] w-[46px] place-items-center rounded-full bg-blue font-display text-xl">
-              ש״ת
-            </span>
-            <span className="flex flex-col gap-1">
-              <span className="text-base font-bold">מחלקת שאלות ותשובות</span>
-              <span className="flex items-center gap-1.5 text-[13px] text-mist">
-                <span className="h-[7px] w-[7px] rounded-full bg-sky" />
-                זמינים לשאלות
-              </span>
-            </span>
-          </div>
-          <div
-            role="log"
-            aria-live="polite"
-            className="flex flex-1 flex-col gap-3.5 px-[22px] py-6"
-            style={{ backgroundImage: "radial-gradient(rgba(142,166,255,.08) 1px, transparent 1px)", backgroundSize: "18px 18px" }}
-          >
-            <span className="self-center rounded-full bg-paper/[.08] px-3 py-1 text-xs text-mist">היום</span>
-            <div className="max-w-[82%] self-end rounded-[20px_20px_20px_6px] bg-blue px-[18px] py-3.5 text-[17px] leading-[1.55] text-white">
-              {q}
-              <div className="mt-1.5 text-left text-[11px] opacity-75">{timeFmt.format(new Date(now))} ✓✓</div>
-            </div>
-            {typing ? <TypingDots /> : <Answer key={q + openQ} text={a} />}
-          </div>
-          <form onSubmit={send} className="flex gap-2.5 border-t border-paper/10 p-3.5">
-            <label htmlFor="ask-q" className="sr-only">
-              שאלה לרב
-            </label>
-            <input
-              id="ask-q"
-              value={draft}
-              onChange={(e) => setDraft(e.target.value)}
-              placeholder="כתבו שאלה משלכם…"
-              autoComplete="off"
-              className="h-[54px] min-w-0 flex-1 rounded-full border border-paper/[.14] bg-navy px-[22px] text-base text-paper outline-none focus:border-sky"
-            />
-            <button type="submit" aria-label="שליחת השאלה" className="h-[54px] w-[54px] flex-none cursor-pointer rounded-full border-none bg-accent text-xl text-white hover:bg-accent-hover">
-              ←
-            </button>
-          </form>
-        </div>
+        {!stacked && chat}
       </div>
     </section>
   );
