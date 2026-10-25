@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { useLocation } from "react-router-dom";
 import { NAV } from "./data";
+import { SiteLink } from "./SiteLink";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menu, setMenu] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 40);
@@ -38,25 +41,32 @@ export function Header() {
             scrolled ? "py-3" : "py-[22px]",
           )}
         >
-          <a href="#top" aria-label="כשר כשר, ועד רבני אירופה. לדף הבית" className="flex items-center gap-3 text-ink hover:text-ink">
+          <SiteLink to="/" aria-label="כשר כשר, ועד רבני אירופה. לדף הבית" className="flex items-center gap-3 text-ink hover:text-ink">
             <span className="flex flex-col leading-none">
               <span className="whitespace-nowrap font-display text-[28px]">
                 כשר <span className="text-blue">כשר</span>
               </span>
               <span className="mt-[5px] text-xs tracking-[.02em] text-muted">ועד רבני אירופה</span>
             </span>
-          </a>
+          </SiteLink>
 
           <nav aria-label="ניווט ראשי" className="hidden items-center gap-[clamp(16px,2vw,34px)] dsk:flex">
-            {NAV.map((n) => (
-              <a
-                key={n.label}
-                href={n.href}
-                className="border-b-[1.5px] border-transparent py-2.5 text-lg text-ink transition-[color,border-color] duration-[250ms] hover:border-blue hover:text-blue"
-              >
-                {n.label}
-              </a>
-            ))}
+            {NAV.map((n) => {
+              const active = n.href === pathname;
+              return (
+                <SiteLink
+                  key={n.label}
+                  to={n.href}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "border-b-[1.5px] py-2.5 text-lg transition-[color,border-color] duration-[250ms] hover:border-blue hover:text-blue",
+                    active ? "border-blue text-blue" : "border-transparent text-ink",
+                  )}
+                >
+                  {n.label}
+                </SiteLink>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-2.5">
@@ -95,14 +105,14 @@ export function Header() {
           </div>
           <nav aria-label="ניווט נייד" className="mt-12 flex flex-col gap-1.5">
             {[...NAV, { label: "יצירת קשר", href: "#contact" }].map((n) => (
-              <a
+              <SiteLink
                 key={n.label}
-                href={n.href}
+                to={n.href}
                 onClick={close}
                 className="border-b border-paper/[.12] py-1.5 font-display text-[44px] leading-[1.15] text-paper hover:text-paper"
               >
                 {n.label}
-              </a>
+              </SiteLink>
             ))}
           </nav>
           <a
@@ -125,8 +135,8 @@ export function MobileActionBar() {
       aria-label="פעולות מהירות"
       className="fixed inset-x-2.5 bottom-2.5 z-[44] grid grid-cols-3 gap-1.5 rounded-[22px] bg-ink p-1.5 shadow-[0_18px_40px_-12px_rgba(5,11,30,.6)] dsk:hidden"
     >
-      <a href="#scan" className={item}>בדיקת מוצר</a>
-      <a href="#restaurants" className={item}>מסעדות</a>
+      <SiteLink to="/#scan" className={item}>בדיקת מוצר</SiteLink>
+      <SiteLink to="/restaurants" className={item}>מסעדות</SiteLink>
       <a href="#donate" className={cn(item, "bg-accent text-white hover:text-white")}>תרומה</a>
     </nav>
   );

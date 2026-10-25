@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
-
-/** Header height to clear when jumping to an anchor. */
-const ANCHOR_OFFSET = -84;
+import { scrollToTarget, setLenis } from "@/lib/scroll";
 
 /**
  * Site-wide smooth wheel scrolling (Lenis, same defaults as the WP
@@ -20,7 +18,9 @@ export function useSmoothScroll() {
       wheelMultiplier: 1,
       easing: (x) => Math.min(1, 1.001 - Math.pow(2, -10 * x)),
     });
+    setLenis(lenis);
 
+    // Same-page anchors (href="#id"); router links are handled by ScrollManager.
     const onClick = (e: MouseEvent) => {
       const a = (e.target as Element).closest?.('a[href^="#"]');
       if (!a) return;
@@ -29,13 +29,14 @@ export function useSmoothScroll() {
       const target = id === "#" ? 0 : document.querySelector<HTMLElement>(id);
       if (target == null) return;
       e.preventDefault();
-      lenis.scrollTo(target, { offset: ANCHOR_OFFSET });
-      history.replaceState(null, "", id);
+      scrollToTarget(target);
+      history.replaceState(history.state, "", id);
     };
     document.addEventListener("click", onClick);
 
     return () => {
       document.removeEventListener("click", onClick);
+      setLenis(null);
       lenis.destroy();
     };
   }, []);

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { NAV, asset } from "./data";
+import { SiteLink } from "./SiteLink";
 
 const AMOUNTS = [
   { v: 18, goal: "ביקור משגיח" },
@@ -170,9 +171,9 @@ export function Footer() {
               <div className="mb-[18px] font-display text-[clamp(26px,2.2vw,34px)] leading-none text-sky">באתר</div>
               <nav aria-label="ניווט תחתון" className="flex flex-col gap-1">
                 {[...NAV, { label: "תרומות", href: "#donate" }].map((n) => (
-                  <a key={n.label} href={n.href} className="py-2 text-[17px] text-paper hover:text-sky">
+                  <SiteLink key={n.label} to={n.href} className="py-2 text-[17px] text-paper hover:text-sky">
                     {n.label}
-                  </a>
+                  </SiteLink>
                 ))}
               </nav>
             </div>

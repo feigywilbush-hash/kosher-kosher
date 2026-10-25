@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { RESTS, TYPE_C, TYPE_DOT, type KType } from "./data";
+import { SiteLink } from "./SiteLink";
 
 const CITIES = ["הכל", "קפריסין", "יוון", "בריטניה", "תאילנד", "הונגריה", "אוקראינה"];
 const TYPES: ("הכל" | KType)[] = ["הכל", "בשרי", "חלבי", "פרווה"];
@@ -177,9 +178,9 @@ export function Restaurants() {
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-5">
         <span className="text-sm text-muted">385 מסעדות כשרות מומלצות</span>
-        <a href="#restaurants" className="inline-flex h-[52px] items-center gap-2.5 rounded-full bg-ink px-[26px] font-normal text-white hover:bg-blue hover:text-white">
+        <SiteLink to="/restaurants" className="inline-flex h-[52px] items-center gap-2.5 rounded-full bg-ink px-[26px] font-normal text-white hover:bg-blue hover:text-white">
           לכל המסעדות <span aria-hidden="true">←</span>
-        </a>
+        </SiteLink>
       </div>
     </section>
   );

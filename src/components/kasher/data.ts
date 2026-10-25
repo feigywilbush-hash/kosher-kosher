@@ -62,12 +62,12 @@ export const QS = [
 ];
 
 export const NAV = [
-  { label: "מוצרים כשרים", href: "#scan" },
-  { label: "מסעדות כשרות", href: "#restaurants" },
-  { label: "כשרות בעולם", href: "#world" },
-  { label: "שאלות ותשובות", href: "#qa" },
-  { label: "רשימת רבנים", href: "#about" },
-  { label: "בית הדין", href: "#about" },
+  { label: "מוצרים כשרים", href: "/#scan" },
+  { label: "מסעדות כשרות", href: "/restaurants" },
+  { label: "כשרות בעולם", href: "/#world" },
+  { label: "שאלות ותשובות", href: "/#qa" },
+  { label: "רשימת רבנים", href: "/#about" },
+  { label: "בית הדין", href: "/#about" },
 ];
 
 export const EASE_OUT = "cubic-bezier(.16,1,.3,1)";

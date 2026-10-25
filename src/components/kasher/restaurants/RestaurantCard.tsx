@@ -1,0 +1,49 @@
+import { cn } from "@/lib/utils";
+import type { Restaurant } from "@/data/restaurants";
+import { RestaurantImage } from "./RestaurantImage";
+import { AUTHORITY_SHORT, TypeTag } from "./tags";
+
+export function RestaurantCard({ r, onOpen }: { r: Restaurant; onOpen: (r: Restaurant, el: HTMLElement) => void }) {
+  return (
+    <article className="group flex flex-col rounded-[24px] bg-paper p-2.5 transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(.16,1,.3,1)] hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(12,23,51,.45)]">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-[18px]">
+        <div className="h-full w-full transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.04]">
+          <RestaurantImage r={r} />
+        </div>
+        <span
+          className={cn(
+            "absolute right-3 top-3 inline-flex h-7 items-center gap-1.5 rounded-full px-3 text-xs font-bold",
+            r.authority === "vaad" ? "bg-white text-ink" : "bg-ink/80 text-paper backdrop-blur-sm",
+          )}
+        >
+          <span className={cn("h-1.5 w-1.5 rounded-full", r.authority === "vaad" ? "bg-accent" : "bg-sky")} />
+          {AUTHORITY_SHORT[r.authority]}
+        </span>
+        {r.status === "בבדיקה" && (
+          <span className="absolute left-3 top-3 inline-flex h-7 items-center rounded-full bg-accent px-3 text-xs font-bold text-white">בבדיקה</span>
+        )}
+      </div>
+
+      <div className="flex flex-1 flex-col px-3 pb-2 pt-5">
+        <div className="text-[13px] text-muted">
+          {r.country} · {r.city}
+        </div>
+        <h3 className="mb-0 mt-2 font-display text-[clamp(26px,2.1vw,32px)] font-normal leading-none [text-wrap:balance]">{r.name}</h3>
+        <div className="mt-auto flex items-center justify-between gap-3 pt-5">
+          <span className="flex items-center gap-2">
+            <TypeTag type={r.type} />
+            {r.level === "מהדרין" && <span className="text-sm font-bold">מהדרין</span>}
+          </span>
+          <button
+            type="button"
+            onClick={(e) => onOpen(r, e.currentTarget)}
+            aria-label={`פרטים נוספים על ${r.name}`}
+            className="inline-flex h-10 flex-none cursor-pointer items-center gap-2 rounded-full border-[1.5px] border-ink bg-transparent px-4 text-sm font-bold text-ink transition-[background,color] duration-[250ms] hover:bg-ink hover:text-white"
+          >
+            פרטים נוספים <span aria-hidden="true">←</span>
+          </button>
+        </div>
+      </div>
+    </article>
+  );
+}
