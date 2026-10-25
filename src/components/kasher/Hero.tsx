@@ -16,11 +16,6 @@ const LINKS = [
 ];
 
 const N = COUNTRIES.length;
-const STAMP_IN: Keyframe[] = [
-  { transform: "rotate(-46deg) scale(2.7)", opacity: 0 },
-  { transform: "rotate(-8deg) scale(.92)", opacity: 1, offset: 0.72 },
-  { transform: "rotate(-12deg) scale(1)", opacity: 1 },
-];
 
 /** Ring tick masks for the rotating dial (container-query units keep them proportional). */
 const ringMask = (w: string): CSSProperties => {
@@ -77,7 +72,6 @@ export function Hero() {
   const hoverRef = useRef(false);
   const visRef = useRef(true);
   const sectionRef = useRef<HTMLElement>(null);
-  const stampRef = useRef<HTMLSpanElement>(null);
 
   const goWorld = useCallback(
     (j: number) => {
@@ -94,7 +88,6 @@ export function Hero() {
 
   useEffect(() => {
     if (reduced) return;
-    stampRef.current?.animate(STAMP_IN, { duration: 640, delay: 1900, easing: "cubic-bezier(.65,0,.35,1)", fill: "both" });
     const io = new IntersectionObserver((es) => (visRef.current = es[0].isIntersecting));
     if (sectionRef.current) io.observe(sectionRef.current);
     const t = setInterval(() => {
@@ -276,7 +269,6 @@ export function Hero() {
                     </div>
                   </div>
                   <span
-                    ref={stampRef}
                     aria-hidden="true"
                     className="absolute left-[-18px] top-[-34px] flex h-[88px] w-[88px] -rotate-12 flex-col items-center justify-center rounded-full bg-accent text-white shadow-[0_16px_30px_-10px_rgba(208,65,40,.7)]"
                   >
