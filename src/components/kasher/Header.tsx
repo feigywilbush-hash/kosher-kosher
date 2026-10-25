@@ -114,7 +114,7 @@ export function Header() {
                 key={n.label}
                 to={n.href}
                 onClick={close}
-                className="border-b border-paper/[.12] py-1.5 font-display text-[44px] leading-[1.15] text-paper hover:text-paper"
+                className="border-b border-paper/[.12] py-1.5 font-display text-[36px] leading-[1.15] text-paper hover:text-paper"
               >
                 {n.label}
               </SiteLink>
