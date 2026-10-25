@@ -130,12 +130,12 @@ export function Hero() {
           {/* Copy */}
           <div className="relative z-[2] min-w-0">
             <h1 className="mb-0 mt-[clamp(20px,2.2vw,30px)] font-display font-normal text-ink">
-              <span className="block overflow-hidden pb-[.06em] pt-[.08em] text-[clamp(63px,6.95vw,125px)] leading-[.9] tracking-[-.01em]">
+              <span className="block overflow-hidden pb-[.06em] pt-[.08em] text-[clamp(72px,20vw,80px)] cmp:text-[clamp(63px,6.95vw,125px)] leading-[.9] tracking-[-.01em]">
                 <span data-line="0" className="inline-block">
                   כשר <span className="text-blue">כשר.</span>
                 </span>
               </span>
-              <span className="block overflow-hidden pb-[.1em] pt-[.06em] text-[clamp(63px,6.95vw,125px)] leading-[.94] tracking-[-.01em] [text-wrap:balance]">
+              <span className="block overflow-hidden pb-[.1em] pt-[.06em] text-[clamp(72px,20vw,80px)] cmp:text-[clamp(63px,6.95vw,125px)] leading-[.94] tracking-[-.01em] [text-wrap:balance]">
                 <span data-line="1" className="inline-block">הבית שלכם לכשרות בעולם, מבית ועד רבני אירופה</span>
               </span>
             </h1>
