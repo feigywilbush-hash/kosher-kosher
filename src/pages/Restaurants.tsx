@@ -7,8 +7,11 @@ const RestaurantsPage = () => {
   useKasherMotion();
   return (
     <SiteShell>
-      <Directory />
-      <AddRestaurant />
+      {/* On phones the whole page sits on white instead of tinted boxes. */}
+      <div className="flow-root bg-white cmp:bg-transparent">
+        <Directory />
+        <AddRestaurant />
+      </div>
     </SiteShell>
   );
 };
