@@ -38,7 +38,7 @@ export function Header() {
         <div
           className={cn(
             "mx-auto flex items-center justify-between gap-6 px-[2.5vw] transition-[padding] duration-[400ms]",
-            scrolled ? "py-3" : "py-[22px]",
+            scrolled ? "py-[17px]" : "py-[22px]",
           )}
         >
           <SiteLink to="/" aria-label="כשר כשר, ועד רבני אירופה. לדף הבית" className="flex items-center gap-3 text-ink hover:text-ink">
