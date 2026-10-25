@@ -4,7 +4,7 @@ import { TypeTag } from "./tags";
 
 export function RestaurantCard({ r, onOpen }: { r: Restaurant; onOpen: (r: Restaurant, el: HTMLElement) => void }) {
   return (
-    <article className="group flex flex-col rounded-[24px] bg-paper p-2.5 transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(.16,1,.3,1)] hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(12,23,51,.45)]">
+    <article className="group flex flex-col rounded-[24px] bg-paper/50 p-2.5 transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(.16,1,.3,1)] hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(12,23,51,.45)]">
       <div className="relative aspect-[4/3] overflow-hidden rounded-[18px]">
         <div className="h-full w-full transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.04]">
           <RestaurantImage r={r} />
