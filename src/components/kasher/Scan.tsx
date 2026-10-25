@@ -122,7 +122,7 @@ export function Scan() {
   const shown = bc.length === 13 ? `${bc[0]} ${bc.slice(1, 7)} ${bc.slice(7)}` : bc;
 
   return (
-    <section id="scan" data-screen-label="Barcode" className="mx-auto max-w-[1480px] scroll-mt-[90px] px-[clamp(20px,4.6vw,80px)] pb-[clamp(80px,10vw,160px)] pt-6 cmp:pt-[clamp(80px,10vw,160px)]">
+    <section id="scan" data-screen-label="Barcode" className="mx-auto max-w-[1480px] scroll-mt-[90px] px-[clamp(20px,4.6vw,80px)] pb-[clamp(80px,10vw,160px)] pt-10 cmp:pt-[clamp(80px,10vw,160px)]">
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] items-center gap-[clamp(48px,6vw,104px)]">
         <div data-reveal="0">
           <h2 className="mb-0 mt-[18px] font-display text-[clamp(46px,5.6vw,98px)] font-normal leading-[.98] [text-wrap:balance]">
