@@ -39,7 +39,6 @@ export function Directory() {
   const filtered = useMemo(() => RESTAURANTS.filter((r) => matches(r)), [matches]);
   const countFor = (c: string) => RESTAURANTS.filter((r) => matches(r, true) && (c === "הכל" || r.country === c)).length;
 
-  const dirty = country !== "הכל" || type !== "הכל" || auth !== "הכל" || !!q;
   const reset = () => {
     setCountry("הכל");
     setType("הכל");
@@ -159,21 +158,12 @@ export function Directory() {
           />
         </div>
 
-        {/* Results */}
-        <div className="mt-[clamp(28px,3vw,44px)] flex items-center justify-between gap-4 border-b-[1.5px] border-ink pb-4">
-          <p aria-live="polite" className="m-0 flex items-baseline gap-2.5">
-            <span className="font-display text-[clamp(32px,2.8vw,44px)] leading-none">{filtered.length}</span>
-            <span className="text-base text-muted">{filtered.length === 1 ? "מסעדה נמצאה" : "מסעדות נמצאו"}</span>
-          </p>
-          {dirty && (
-            <button type="button" onClick={reset} className="cursor-pointer border-none bg-transparent p-0 text-[15px] text-ink underline underline-offset-4 hover:text-blue">
-              ניקוי כל הסינונים
-            </button>
-          )}
-        </div>
+        <p aria-live="polite" className="sr-only">
+          {filtered.length} מסעדות נמצאו
+        </p>
 
         {filtered.length > 0 ? (
-          <div className="mt-[clamp(20px,2.4vw,36px)] grid grid-cols-[repeat(auto-fill,minmax(min(100%,300px),1fr))] dsk:grid-cols-4 gap-[clamp(14px,1.6vw,24px)]">
+          <div className="mt-[clamp(24px,2.6vw,40px)] grid grid-cols-[repeat(auto-fill,minmax(min(100%,300px),1fr))] dsk:grid-cols-4 gap-[clamp(14px,1.6vw,24px)]">
             {filtered.slice(0, limit).map((r) => (
               <RestaurantCard key={r.id} r={r} onOpen={onOpen} />
             ))}
