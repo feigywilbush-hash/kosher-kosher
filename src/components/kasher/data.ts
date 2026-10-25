@@ -1,5 +1,5 @@
 /** Resolves a file in public/ against the deploy base path. */
-export const asset = (p: string) => import.meta.env.BASE_URL + p;
+export const asset = (p: string) => (p.startsWith("data:") ? p : import.meta.env.BASE_URL + p);
 
 export type KType = "בשרי" | "חלבי" | "פרווה";
 
