@@ -94,7 +94,7 @@ export function Directory() {
 
         {/* Filters */}
         <div data-hero-in="200" className="mt-[clamp(40px,4.4vw,72px)] flex flex-wrap items-center gap-3 rounded-[24px] bg-paper p-[clamp(12px,1.4vw,20px)]">
-          <div className="relative min-w-[min(100%,220px)] flex-1 dsk:max-w-[340px]">
+          <div className="relative min-w-[min(100%,220px)] flex-1">
             <label htmlFor="dir-q" className="sr-only">
               חיפוש מסעדה
             </label>
