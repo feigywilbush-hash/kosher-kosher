@@ -29,9 +29,9 @@ export function Directory() {
 
   const q = norm(rq.trim());
   const matches = useCallback(
-    (r: Restaurant, skipCountry = false, skipAuth = false) =>
+    (r: Restaurant, skipCountry = false, skipAuth = false, skipType = false) =>
       (skipCountry || country === "הכל" || r.country === country) &&
-      (type === "הכל" || r.type === type) &&
+      (skipType || type === "הכל" || r.type === type) &&
       (skipAuth || auth === "הכל" || r.authority === auth) &&
       (!q || haystack(r).includes(q)),
     [country, type, auth, q],
@@ -118,7 +118,7 @@ export function Directory() {
               </button>
             )}
           </div>
-          <div role="group" aria-label="סינון לפי סוג" className="flex w-full gap-1 rounded-full bg-white p-1 cmp:w-auto">
+          <div role="group" aria-label="סינון לפי סוג" className="hidden gap-1 rounded-full bg-white p-1 cmp:flex">
             {TYPES.map((t) => {
               const on = type === t;
               return (
@@ -138,6 +138,17 @@ export function Directory() {
               );
             })}
           </div>
+          <FilterSelect<"הכל" | KType>
+            label="סוג:"
+            value={type}
+            onChange={withReset(setType)}
+            options={TYPES.map((t) => ({
+              value: t,
+              label: t,
+              count: RESTAURANTS.filter((r) => matches(r, false, false, true) && (t === "הכל" || r.type === t)).length,
+            }))}
+            className="w-full cmp:hidden"
+          />
           <FilterSelect
             label="מדינה:"
             value={country}
