@@ -174,7 +174,7 @@ export function Directory() {
         </p>
 
         {filtered.length > 0 ? (
-          <div className="mt-[clamp(24px,2.6vw,40px)] grid grid-cols-[repeat(auto-fill,minmax(min(100%,300px),1fr))] dsk:grid-cols-4 gap-[clamp(14px,1.6vw,24px)]">
+          <div className="-mx-[calc(20px-2.5vw)] mt-[clamp(24px,2.6vw,40px)] grid cmp:mx-0 grid-cols-[repeat(auto-fill,minmax(min(100%,300px),1fr))] dsk:grid-cols-4 gap-[clamp(14px,1.6vw,24px)]">
             {filtered.slice(0, limit).map((r) => (
               <RestaurantCard key={r.id} r={r} onOpen={onOpen} />
             ))}
