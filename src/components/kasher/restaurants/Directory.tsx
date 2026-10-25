@@ -12,7 +12,7 @@ const COUNTRY_ORDER = ["קפריסין", "יוון", "תאילנד", "הונגר
 const COUNTRIES = [...new Set(RESTAURANTS.map((r) => r.country))].sort((a, b) => COUNTRY_ORDER.indexOf(a) - COUNTRY_ORDER.indexOf(b));
 const TYPES: ("הכל" | KType)[] = ["הכל", "בשרי", "חלבי", "פרווה"];
 const AUTHS: ("הכל" | Authority)[] = ["הכל", "vaad", "recommended"];
-const PAGE = 12;
+const PAGE = 20;
 
 const norm = (s: string) => s.toLowerCase().replace(/['"׳״`]/g, "");
 const haystack = (r: Restaurant) => norm([r.name, r.city, r.country, r.description, r.address].join(" "));
