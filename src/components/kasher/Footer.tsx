@@ -64,7 +64,7 @@ export function Footer() {
             ))}
           </div>
           <div className="mb-2.5 mt-[22px] text-sm font-normal">סכום התרומה</div>
-          <div role="group" aria-label="סכום" className="grid grid-cols-4 gap-2">
+          <div role="group" aria-label="סכום" className="grid grid-cols-2 gap-2 cmp:grid-cols-4">
             {AMOUNTS.map((a) => {
               const on = amount === a.v;
               return (
