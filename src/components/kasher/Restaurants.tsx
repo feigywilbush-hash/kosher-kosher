@@ -1,9 +1,12 @@
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
-import { RESTS, TYPE_C, TYPE_DOT, type KType } from "./data";
+import { RESTAURANTS } from "@/data/restaurants";
+import { TYPE_C, TYPE_DOT, asset, type KType } from "./data";
 import { SiteLink } from "./SiteLink";
 
-const CITIES = ["הכל", "קפריסין", "יוון", "בריטניה", "תאילנד", "הונגריה", "אוקראינה"];
+const COUNTRY_ORDER = ["קפריסין", "יוון", "תאילנד", "הונגריה"];
+const CITIES = ["הכל", ...[...new Set(RESTAURANTS.map((r) => r.country))].sort((a, b) => COUNTRY_ORDER.indexOf(a) - COUNTRY_ORDER.indexOf(b))];
+const SHOW = 8;
 const TYPES: ("הכל" | KType)[] = ["הכל", "בשרי", "חלבי", "פרווה"];
 const FLOAT_H = 210;
 
@@ -17,8 +20,11 @@ export function Restaurants() {
   const listRef = useRef<HTMLDivElement>(null);
 
   const q = rq.trim();
-  const filtered = RESTS.filter((r) => (city === "הכל" || r.city === city) && (type === "הכל" || r.type === type) && (!q || r.name.includes(q) || r.city.includes(q)));
-  const hov = hover != null ? RESTS[hover] : null;
+  const ql = q.toLowerCase();
+  const filtered = RESTAURANTS.filter(
+    (r) => (city === "הכל" || r.country === city) && (type === "הכל" || r.type === type) && (!ql || [r.name, r.city, r.country].some((f) => f.toLowerCase().includes(ql))),
+  ).slice(0, SHOW);
+  const hov = hover != null ? filtered[hover] ?? null : null;
 
   const onEnter = (idx: number, row: HTMLElement) => {
     const cont = listRef.current;
@@ -112,12 +118,12 @@ export function Restaurants() {
           className="pointer-events-none absolute left-1/2 z-[6] -ml-[150px] hidden h-[210px] w-[300px] overflow-hidden rounded-[18px] bg-tint shadow-[0_30px_60px_-20px_rgba(12,23,51,.45)] dsk:block"
           style={{ top: floatY, opacity: hov ? 1 : 0, transition: `opacity .3s, top ${floatAnim ? ".45s cubic-bezier(.16,1,.3,1)" : "0s"}` }}
         >
-          {RESTS.map((r, i) => (
+          {filtered.map((r, i) => (
             <span
-              key={r.name}
+              key={r.id}
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url(${r.img})`,
+                backgroundImage: `url(${asset(r.img)})`,
                 opacity: hover === i ? 1 : 0,
                 transform: hover === i ? "scale(1)" : "scale(1.08)",
                 transition: "opacity .35s ease, transform .6s cubic-bezier(.16,1,.3,1)",
@@ -132,10 +138,10 @@ export function Restaurants() {
         </div>
 
         {filtered.map((r, i) => (
-          <a
-            key={r.name}
-            href="#restaurants"
-            onMouseEnter={(e) => onEnter(RESTS.indexOf(r), e.currentTarget)}
+          <SiteLink
+            key={r.id}
+            to="/restaurants"
+            onMouseEnter={(e) => onEnter(i, e.currentTarget)}
             className="grid grid-cols-[28px_minmax(0,1fr)_auto] items-center gap-5 border-b border-ink/[.12] px-3 py-6 text-ink transition-[background,padding] duration-300 hover:bg-paper hover:px-6 hover:text-ink cmp:grid-cols-[48px_minmax(0,1.7fr)_minmax(0,.8fr)_120px_minmax(0,.6fr)_44px]"
             style={{ transitionDuration: ".3s, .4s" }}
           >
@@ -143,10 +149,10 @@ export function Restaurants() {
             <span className="flex min-w-0 flex-col gap-1.5">
               <span className="font-display text-[clamp(28px,3.2vw,50px)] leading-none">{r.name}</span>
               <span className="text-sm text-muted cmp:hidden">
-                {r.city} · {r.level}
+                {r.country} · {r.city}
               </span>
             </span>
-            <span className="hidden text-base text-muted cmp:inline">{r.city}</span>
+            <span className="hidden text-base text-muted cmp:inline">{r.country}</span>
             <span className={cn("inline-flex h-8 items-center gap-2 justify-self-start rounded-full px-3.5 text-sm font-bold", TYPE_C[r.type].bg, TYPE_C[r.type].fg)}>
               <span className={cn("h-[7px] w-[7px] rounded-full", TYPE_DOT[r.type])} />
               {r.type}
@@ -155,7 +161,7 @@ export function Restaurants() {
             <span aria-hidden="true" className="hidden h-11 w-11 place-items-center justify-self-end rounded-full border border-ink/20 text-lg cmp:grid">
               ←
             </span>
-          </a>
+          </SiteLink>
         ))}
 
         {filtered.length === 0 && (
@@ -177,7 +183,7 @@ export function Restaurants() {
       </div>
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-5">
-        <span className="text-sm text-muted">385 מסעדות כשרות מומלצות</span>
+        <span className="text-sm text-muted">{RESTAURANTS.length} מסעדות כשרות באתר</span>
         <SiteLink to="/restaurants" className="inline-flex h-[52px] items-center gap-2.5 rounded-full bg-ink px-[26px] font-normal text-white hover:bg-blue hover:text-white">
           לכל המסעדות <span aria-hidden="true">←</span>
         </SiteLink>
