@@ -11,9 +11,9 @@ export function About() {
     <section
       id="about"
       data-screen-label="About"
-      className="mx-auto max-w-[1480px] scroll-mt-[90px] px-[clamp(20px,4.6vw,80px)] pb-[clamp(80px,9vw,140px)] pt-12 cmp:pt-[clamp(96px,12vw,180px)]"
+      className="mx-auto max-w-[1480px] scroll-mt-[90px] px-[clamp(20px,4.6vw,80px)] pb-[clamp(80px,9vw,140px)] pt-6 cmp:pt-[clamp(96px,12vw,180px)]"
     >
-      <div className="mt-8 grid grid-cols-[repeat(auto-fit,minmax(min(100%,460px),1fr))] items-end gap-[clamp(32px,6vw,100px)]">
+      <div className="mt-0 cmp:mt-8 grid grid-cols-[repeat(auto-fit,minmax(min(100%,460px),1fr))] items-end gap-[clamp(32px,6vw,100px)]">
         <div id="about-statement" data-reveal="0" className="flex w-full max-w-[640px] flex-col gap-[clamp(18px,2vw,28px)] self-center [container-type:inline-size]">
           <h2 className="m-0 font-display text-[clamp(48px,5.6vw,98px)] font-normal leading-[.92] text-ink">הרב ידידיה כהן שליט"א</h2>
           <div className="mt-[calc(-1*clamp(12px,1.6vw,22px))] font-display text-[clamp(48px,5.6vw,98px)] leading-none text-blue">
@@ -27,7 +27,7 @@ export function About() {
             אתר כשרכשר פועל בהכוונת רבני ועד רבני אירופה שע״י תפארת ישראל, מתוך מטרה לתת לציבור מענה כשרותי מקצועי, ברור ואחראי בארץ ובעולם - <strong className="text-ink">להרבות כשרות בעולם.</strong>
           </p>
         </div>
-        <div data-reveal="100" className="relative order-[-1] aspect-[4/5] max-h-[620px] w-[min(100%,496px)] justify-self-end rounded-[28px] bg-tint">
+        <div data-reveal="100" className="relative order-[-1] aspect-[4/5] max-h-[620px] w-[calc(100%+40px-5vw)] -mx-[calc(20px-2.5vw)] max-w-none justify-self-end cmp:mx-0 cmp:w-[min(100%,496px)] rounded-[28px] bg-tint">
           <div
             role="img"
             aria-label="הרב ידידיה כהן בודק מוצרים במטבח"
