@@ -27,7 +27,7 @@ export function About() {
             אתר כשרכשר פועל בהכוונת רבני ועד רבני אירופה שע״י תפארת ישראל, מתוך מטרה לתת לציבור מענה כשרותי מקצועי, ברור ואחראי בארץ ובעולם - <strong className="text-ink">להרבות כשרות בעולם.</strong>
           </p>
         </div>
-        <div data-reveal="100" className="relative order-[-1] aspect-[4/5] max-h-[620px] w-[calc(100%+40px-5vw)] -mx-[calc(20px-2.5vw)] max-w-none justify-self-end cmp:mx-0 cmp:w-[min(100%,496px)] rounded-[28px] bg-tint">
+        <div data-reveal="100" className="relative order-[-1] aspect-[4/5] max-h-[620px] w-[calc(100%+40px-5vw)] -mx-[calc(20px-2.5vw)] max-w-none justify-self-end cmp:mx-0 cmp:justify-self-start cmp:w-[min(100%,496px)] rounded-[28px] bg-tint">
           <div
             role="img"
             aria-label="הרב ידידיה כהן בודק מוצרים במטבח"
