@@ -6,12 +6,12 @@ import { TYPE_DOT, type KType } from "../data";
 import { SiteLink } from "../SiteLink";
 import { RestaurantCard } from "./RestaurantCard";
 import { RestaurantDialog } from "./RestaurantDialog";
-import { AUTHORITY_LABEL } from "./tags";
 
 const COUNTRY_ORDER = ["קפריסין", "יוון", "תאילנד", "הונגריה"];
 const COUNTRIES = [...new Set(RESTAURANTS.map((r) => r.country))].sort((a, b) => COUNTRY_ORDER.indexOf(a) - COUNTRY_ORDER.indexOf(b));
 const TYPES: ("הכל" | KType)[] = ["הכל", "בשרי", "חלבי", "פרווה"];
 const AUTHS: ("הכל" | Authority)[] = ["הכל", "vaad", "recommended"];
+const AUTH_CHIP: Record<"הכל" | Authority, string> = { "הכל": "הכל", vaad: "בפיקוח ועד רבני אירופה", recommended: "בהמלצת ועד רבני אירופה" };
 const PAGE = 20;
 
 const norm = (s: string) => s.toLowerCase().replace(/['"׳״`]/g, "");
@@ -28,10 +28,10 @@ export function Directory() {
 
   const q = norm(rq.trim());
   const matches = useCallback(
-    (r: Restaurant, skipCountry = false) =>
+    (r: Restaurant, skipCountry = false, skipAuth = false) =>
       (skipCountry || country === "הכל" || r.country === country) &&
       (type === "הכל" || r.type === type) &&
-      (auth === "הכל" || r.authority === auth) &&
+      (skipAuth || auth === "הכל" || r.authority === auth) &&
       (!q || haystack(r).includes(q)),
     [country, type, auth, q],
   );
@@ -161,9 +161,10 @@ export function Directory() {
                 );
               })}
             </div>
-            <div role="group" aria-label="סינון לפי כשרות" className="flex w-full flex-col gap-1 rounded-[24px] bg-white p-1 cmp:w-auto cmp:flex-row cmp:rounded-full">
+            <div role="group" aria-label="סינון לפי כשרות" className="flex flex-wrap gap-2">
               {AUTHS.map((a) => {
                 const on = auth === a;
+                const n = RESTAURANTS.filter((r) => matches(r, false, true) && (a === "הכל" || r.authority === a)).length;
                 return (
                   <button
                     key={a}
@@ -171,12 +172,12 @@ export function Directory() {
                     onClick={() => withReset(setAuth)(a)}
                     aria-pressed={on}
                     className={cn(
-                      "flex h-10 cursor-pointer items-center justify-center gap-2 rounded-full border-none px-4 text-[15px] font-normal transition-all duration-[250ms]",
-                      on ? "bg-blue text-white" : "bg-transparent text-muted hover:text-ink",
+                      "flex h-11 cursor-pointer items-center gap-2 rounded-full border-[1.5px] px-[18px] text-[15px] font-normal transition-all duration-[250ms]",
+                      on ? "border-ink bg-ink text-white" : "border-ink/[.18] bg-transparent text-ink hover:border-ink",
                     )}
                   >
-                    {a !== "הכל" && <span className={cn("h-[7px] w-[7px] rounded-full", a === "vaad" ? "bg-accent" : on ? "bg-sky" : "bg-blue")} />}
-                    {a === "הכל" ? "כל הכשרויות" : AUTHORITY_LABEL[a]}
+                    {AUTH_CHIP[a]}
+                    <span className={cn("font-mono text-xs", on ? "text-white/70" : "text-muted")}>{n}</span>
                   </button>
                 );
               })}
