@@ -163,7 +163,7 @@ export function AddRestaurant() {
 
               <div className="flex flex-wrap items-center justify-between gap-4 pt-2 cmp:col-span-2">
                 <p className="m-0 max-w-[300px] text-[13px] leading-[1.5] text-muted">הפרטים ישמשו רק לבדיקת הבקשה ולחזרה אליכם.</p>
-                <button type="submit" className="inline-flex h-14 cursor-pointer items-center gap-2.5 rounded-full border-none bg-accent px-[30px] text-base font-bold text-white hover:bg-accent-hover">
+                <button type="submit" className="inline-flex h-14 cursor-pointer items-center gap-2.5 rounded-full border-none bg-accent px-[30px] text-base font-normal text-white hover:bg-accent-hover">
                   שליחת הבקשה <span aria-hidden="true">←</span>
                 </button>
               </div>
