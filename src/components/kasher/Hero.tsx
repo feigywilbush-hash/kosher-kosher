@@ -83,7 +83,6 @@ export function Hero() {
   const visRef = useRef(true);
   const sectionRef = useRef<HTMLElement>(null);
   const stampRef = useRef<HTMLSpanElement>(null);
-  const orbitRef = useRef<HTMLDivElement>(null);
 
   const goWorld = useCallback(
     (j: number) => {
@@ -101,7 +100,6 @@ export function Hero() {
 
   useEffect(() => {
     if (reduced) return;
-    const orbit = orbitRef.current?.animate([{ transform: "rotate(0deg)" }, { transform: "rotate(360deg)" }], { duration: 22000, iterations: Infinity });
     stampRef.current?.animate(STAMP_IN, { duration: 640, delay: 1900, easing: "cubic-bezier(.65,0,.35,1)", fill: "both" });
     const io = new IntersectionObserver((es) => (visRef.current = es[0].isIntersecting));
     if (sectionRef.current) io.observe(sectionRef.current);
@@ -110,7 +108,6 @@ export function Hero() {
       goWorld((idxRef.current + 1) % N);
     }, 4200);
     return () => {
-      orbit?.cancel();
       io.disconnect();
       clearInterval(t);
     };
@@ -190,7 +187,7 @@ export function Hero() {
               className="relative aspect-square w-full [container-type:inline-size]"
             >
               <div aria-hidden="true" className="absolute inset-[-5%] rounded-full border-[1.5px] border-dashed border-navy/[.28]" />
-              <div ref={orbitRef} aria-hidden="true" className="absolute inset-[-5%]">
+              <div aria-hidden="true" className="absolute inset-[-5%]">
                 <span className="absolute left-1/2 top-[-6px] -ml-1.5 h-3 w-3 rounded-full bg-accent shadow-[0_0_0_5px_rgba(208,65,40,.18)]" />
               </div>
 
