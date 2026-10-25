@@ -92,7 +92,7 @@ export function RestaurantDialog({ r, onClose }: { r: Restaurant; onClose: () =>
           <div className="text-[13px] text-muted">
             {r.country} · {r.city}
           </div>
-          <h2 id="rest-dialog-title" className="mb-0 mt-2 font-display text-[clamp(36px,3.6vw,52px)] font-normal leading-[.95] [text-wrap:balance]">
+          <h2 id="rest-dialog-title" className="mb-0 mt-2 font-body text-[clamp(28px,2.4vw,34px)] font-bold leading-[1.2] [text-wrap:balance]">
             {r.name}
           </h2>
           <div className="mt-4 flex flex-wrap items-center gap-2">
