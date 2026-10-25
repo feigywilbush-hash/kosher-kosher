@@ -52,7 +52,7 @@ export function Header() {
               <a
                 key={n.label}
                 href={n.href}
-                className="border-b-[1.5px] border-transparent py-2.5 text-base text-ink transition-[color,border-color] duration-[250ms] hover:border-blue hover:text-blue"
+                className="border-b-[1.5px] border-transparent py-2.5 text-lg text-ink transition-[color,border-color] duration-[250ms] hover:border-blue hover:text-blue"
               >
                 {n.label}
               </a>
