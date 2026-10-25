@@ -11,12 +11,15 @@ export function FilterSelect<T extends string>({
   options,
   onChange,
   className,
+  outlined = false,
 }: {
   label: string;
   value: T;
   options: Option<T>[];
   onChange: (v: T) => void;
   className?: string;
+  /** Visible border while idle, for use on white backgrounds. */
+  outlined?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const root = useRef<HTMLDivElement>(null);
@@ -46,6 +49,7 @@ export function FilterSelect<T extends string>({
         className={cn(
           "flex h-14 w-full cursor-pointer items-center justify-between gap-3 whitespace-nowrap rounded-full border-[1.5px] px-5 text-[15px] font-normal transition-[border-color,background,color] duration-[250ms]",
           active ? "border-ink bg-ink text-white" : "border-transparent bg-white text-ink hover:border-ink/30",
+          outlined && !active && !open && "border-ink/[.18]",
           open && !active && "border-blue",
         )}
       >

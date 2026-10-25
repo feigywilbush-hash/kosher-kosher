@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { RESTAURANTS } from "@/data/restaurants";
 import { TYPE_C, TYPE_DOT, asset, type KType } from "./data";
 import { SiteLink } from "./SiteLink";
+import { FilterSelect } from "./restaurants/FilterSelect";
 
 const COUNTRY_ORDER = ["קפריסין", "יוון", "תאילנד", "הונגריה"];
 const CITIES = ["הכל", ...[...new Set(RESTAURANTS.map((r) => r.country))].sort((a, b) => COUNTRY_ORDER.indexOf(a) - COUNTRY_ORDER.indexOf(b))];
@@ -62,8 +63,20 @@ export function Restaurants() {
         </div>
       </div>
 
-      <div data-reveal="200" className="mt-10 flex flex-wrap items-center justify-between gap-5">
-        <div role="group" aria-label="סינון לפי עיר" className="flex flex-wrap gap-2">
+      <div data-reveal="200" className="relative z-10 mt-10 flex flex-wrap items-center justify-between gap-5">
+        <FilterSelect
+          label="מדינה:"
+          value={city}
+          onChange={setCity}
+          options={CITIES.map((c) => ({
+            value: c,
+            label: c === "הכל" ? "כל המדינות" : c,
+            count: RESTAURANTS.filter((r) => (c === "הכל" || r.country === c) && (type === "הכל" || r.type === type)).length,
+          }))}
+          outlined
+          className="w-full cmp:hidden"
+        />
+        <div role="group" aria-label="סינון לפי עיר" className="hidden flex-wrap gap-2 cmp:flex">
           {CITIES.map((c) => {
             const on = city === c;
             return (
