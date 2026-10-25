@@ -142,7 +142,7 @@ export function World() {
     <section
       id="world"
       data-screen-label="World"
-      className="relative mx-[2.5vw] mt-6 scroll-mt-[90px] overflow-hidden rounded-[32px] bg-ink px-[clamp(20px,4.6vw,80px)] py-[clamp(36px,5.4vw,88px)] text-paper"
+      className="relative mx-[2.5vw] mt-10 scroll-mt-[90px] cmp:mt-6 overflow-hidden rounded-[32px] bg-ink px-[clamp(20px,4.6vw,80px)] py-[clamp(36px,5.4vw,88px)] text-paper"
     >
       <div className="flex flex-wrap items-end justify-between gap-8">
         <div data-reveal="0">
