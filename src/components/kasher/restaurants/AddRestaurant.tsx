@@ -47,9 +47,14 @@ export function AddRestaurant() {
           <h2 className="m-0 font-display text-[clamp(52px,7.4vw,128px)] font-normal leading-[.92]">
             הצטרפות למערך <span className="text-sky">הכשרות</span>
           </h2>
-          <p className="mb-0 mt-6 max-w-[480px] text-[clamp(17px,1.3vw,20px)] leading-[1.65] text-mist [text-wrap:pretty]">
-            מסעדה שבכשרות ועד רבני אירופה או בהמלצתו וחסרה ברשימה? שלחו לנו את הפרטים, ואחרי בדיקה מול גוף הכשרות היא תתווסף לאתר.
-          </p>
+          <div className="mt-6 max-w-[480px] space-y-4 text-[clamp(17px,1.3vw,20px)] leading-[1.65] text-mist [text-wrap:pretty]">
+            <p className="m-0">
+              בעלי מסעדה? ועד רבני אירופה מזמין אתכם להגיש בקשה להצטרפות למערך הכשרות או לבחינת המסעדה והכשרות הקיימת לצורך קבלת המלצה והופעה באתר.
+            </p>
+            <p className="m-0">
+              מלאו את פרטי המסעדה, וצוות הוועד יבחן את הבקשה, יבדוק את פרטי הכשרות ויצור עמכם קשר להמשך התהליך.
+            </p>
+          </div>
           <ol className="m-0 mt-[clamp(32px,3.6vw,56px)] list-none border-t border-paper/[.18] p-0">
             {STEPS.map((s) => (
               <li key={s.n} className="grid grid-cols-[44px_minmax(0,1fr)] gap-3.5 border-b border-paper/[.14] px-1 py-[22px]">
