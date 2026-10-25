@@ -127,17 +127,3 @@ export function Header() {
     </>
   );
 }
-
-export function MobileActionBar() {
-  const item = "grid h-[52px] place-items-center rounded-2xl text-[15px] font-bold text-paper hover:text-paper";
-  return (
-    <nav
-      aria-label="פעולות מהירות"
-      className="fixed inset-x-2.5 bottom-2.5 z-[44] grid grid-cols-3 gap-1.5 rounded-[22px] bg-ink p-1.5 shadow-[0_18px_40px_-12px_rgba(5,11,30,.6)] dsk:hidden"
-    >
-      <SiteLink to="/#scan" className={item}>בדיקת מוצר</SiteLink>
-      <SiteLink to="/restaurants" className={item}>מסעדות</SiteLink>
-      <a href="#donate" className={cn(item, "bg-accent text-white hover:text-white")}>תרומה</a>
-    </nav>
-  );
-}

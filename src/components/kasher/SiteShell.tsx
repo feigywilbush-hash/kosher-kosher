@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Header, MobileActionBar } from "./Header";
+import { Header } from "./Header";
 import { Footer } from "./Footer";
 
 export function SiteShell({ children }: { children: ReactNode }) {
@@ -8,7 +8,6 @@ export function SiteShell({ children }: { children: ReactNode }) {
       <Header />
       <main id="main">{children}</main>
       <Footer />
-      <MobileActionBar />
     </div>
   );
 }
