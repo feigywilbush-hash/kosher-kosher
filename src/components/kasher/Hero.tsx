@@ -135,7 +135,7 @@ export function Hero() {
                   כשר <span className="text-blue">כשר.</span>
                 </span>
               </span>
-              <span className="block overflow-hidden pb-[.1em] pt-[.06em] text-[clamp(72px,20vw,80px)] cmp:text-[clamp(63px,6.95vw,125px)] leading-[.94] tracking-[-.01em] [text-wrap:balance]">
+              <span className="block overflow-hidden pb-[.1em] pt-[.06em] text-[clamp(46px,13vw,60px)] cmp:text-[clamp(63px,6.95vw,125px)] leading-[.94] tracking-[-.01em] [text-wrap:balance]">
                 <span data-line="1" className="inline-block">הבית שלכם לכשרות בעולם, מבית ועד רבני אירופה</span>
               </span>
             </h1>
