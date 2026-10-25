@@ -129,6 +129,15 @@ export function World() {
   const [sx, sy] = MAP_POS[cur.code];
   const follow = { left: `${sx}%`, top: `${sy}%`, transition: `left .8s ${EASE_IO}, top .8s ${EASE_IO}` };
 
+  const allCountries = (
+    <a
+      href="#world"
+      className="inline-flex h-[52px] items-center gap-2.5 rounded-full border-[1.5px] border-paper/40 px-[26px] font-normal text-paper transition-[background,color] duration-[250ms] hover:bg-paper hover:text-ink"
+    >
+      כל המדינות <span aria-hidden="true">←</span>
+    </a>
+  );
+
   return (
     <section
       id="world"
@@ -144,13 +153,8 @@ export function World() {
             נוסעים? בכל יעד בלוח יש מסעדות ומוסדות בהשגחה, ורב אחראי שאפשר לפנות אליו לפני הטיסה ובמהלכה.
           </p>
         </div>
-        <div data-reveal="150" className="flex flex-col items-end gap-[18px]">
-          <a
-            href="#world"
-            className="inline-flex h-[52px] items-center gap-2.5 rounded-full border-[1.5px] border-paper/40 px-[26px] font-normal text-paper transition-[background,color] duration-[250ms] hover:bg-paper hover:text-ink"
-          >
-            כל המדינות <span aria-hidden="true">←</span>
-          </a>
+        <div data-reveal="150" className="hidden flex-col items-end gap-[18px] cmp:flex">
+          {allCountries}
         </div>
       </div>
 
@@ -285,6 +289,7 @@ export function World() {
           })}
         </div>
       </div>
+      <div className="mt-8 cmp:hidden">{allCountries}</div>
     </section>
   );
 }
