@@ -53,7 +53,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "שמעון בלחסן",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d27.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d30",
@@ -77,7 +77,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "ר' ישראל רוזנבלום הי\"ו",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d30.webp"
   },
   {
     "id": "6aa98caa541e8d33060a80af",
@@ -101,7 +101,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "הרב ירון חנוכה",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/0a80af.webp"
   },
   {
     "id": "6a85408c230b321c513137e6",
@@ -125,7 +125,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "",
     "supervisionType": "קבוע",
     "certValidUntil": "2026-12-31",
-    "img": ""
+    "img": "images/restaurants/3137e6.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d18",
@@ -149,7 +149,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d18.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d14",
@@ -173,7 +173,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d14.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d16",
@@ -197,7 +197,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d16.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d13",
@@ -221,7 +221,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d13.webp"
   },
   {
     "id": "6a9c9a31bcd56892ad5d133c",
@@ -245,7 +245,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "",
     "supervisionType": "קבוע",
     "certValidUntil": "2027-04-20",
-    "img": ""
+    "img": "images/restaurants/5d133c.webp"
   },
   {
     "id": "6aa7eeef5786b8faf635e4c6",
@@ -269,7 +269,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/35e4c6.webp"
   },
   {
     "id": "6aa7eeef5786b8faf635e4c7",
@@ -293,7 +293,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/35e4c7.webp"
   },
   {
     "id": "6a9c9a31bcd56892ad5d133b",
@@ -317,7 +317,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "אילנה",
     "supervisionType": "קבוע",
     "certValidUntil": "2027-04-20",
-    "img": ""
+    "img": "images/restaurants/5d133b.webp"
   },
   {
     "id": "6aab2680fbab841e9ff4f3e1",
@@ -341,7 +341,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "ר' שמעון בלחסן",
     "supervisionType": "קבוע",
     "certValidUntil": "2027-04-20",
-    "img": ""
+    "img": "images/restaurants/f4f3e1.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d25",
@@ -365,7 +365,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "שמעון בלחסן",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d25.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d28",
@@ -389,7 +389,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "שמעון בלחסן",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d28.webp"
   },
   {
     "id": "6aa98aaba1d358f70898c9ca",
@@ -413,7 +413,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "הרב ירון חנוכה שליט\"א",
     "supervisionType": "יוצא ונכנס",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/98c9ca.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d0b",
@@ -437,7 +437,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "הרב ירון חנוכה הי\"ו",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d0b.webp"
   },
   {
     "id": "6aa98caaf352c3bb8fbaf566",
@@ -461,7 +461,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/baf566.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d0d",
@@ -485,7 +485,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "הרב ירון חנוכה הי\"ו",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d0d.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d1c",
@@ -509,7 +509,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "ישראל רוזנבלום",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d1c.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d2b",
@@ -533,7 +533,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "ישראל רוזנבלום",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d2b.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d23",
@@ -557,7 +557,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "ישראל רוזנבלום",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d23.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d24",
@@ -581,7 +581,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "ישראל רוזנבלום",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d24.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d1e",
@@ -605,7 +605,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "ישראל רוזנבלום",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d1e.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d21",
@@ -629,7 +629,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "ישראל רוזנבלום",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d21.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d22",
@@ -653,7 +653,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "ישראל רוזנבלום",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d22.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d31",
@@ -677,7 +677,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "ישראל רוזנבלום",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d31.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d20",
@@ -701,7 +701,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "ישראל רוזנבלום",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d20.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d1b",
@@ -725,7 +725,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "ישראל רוזנבלום",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d1b.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d2c",
@@ -749,7 +749,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "ישראל רוזנבלום",
     "supervisionType": "קבוע",
     "certValidUntil": "2027-04-20",
-    "img": ""
+    "img": "images/restaurants/ee7d2c.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d1a",
@@ -773,7 +773,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "ר' ישראל רוזנבלום הי\"ו",
     "supervisionType": "קבוע",
     "certValidUntil": "2027-04-20",
-    "img": ""
+    "img": "images/restaurants/ee7d1a.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d26",
@@ -797,7 +797,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "הרב שאול הלל ביטון",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d26.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d29",
@@ -821,7 +821,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "ר' ישראל רוזנבלום הי\"ו",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d29.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d0f",
@@ -845,7 +845,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "הרב ירון חנוכה הי\"ו",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d0f.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d11",
@@ -869,7 +869,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "הרב ירון חנוכה הי\"ו",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d11.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d12",
@@ -893,7 +893,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "הרב ירון חנוכה הי\"ו",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d12.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d10",
@@ -917,7 +917,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "הרב ירון חנוכה הי\"ו",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d10.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d0c",
@@ -941,7 +941,7 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "הרב ירון חנוכה הי\"ו",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d0c.webp"
   },
   {
     "id": "6a95fc40235dc97a03ee7d0e",
@@ -965,6 +965,6 @@ export const RESTAURANTS: Restaurant[] = [
     "mashgiach": "הרב ירון חנוכה הי\"ו",
     "supervisionType": "קבוע",
     "certValidUntil": "",
-    "img": ""
+    "img": "images/restaurants/ee7d0e.webp"
   }
 ];
