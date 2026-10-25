@@ -7,7 +7,6 @@ export const AUTHORITY_LABEL: Record<Authority, string> = {
   vaad: "כשרות ועד רבני אירופה",
   recommended: "בהמלצת ועד רבני אירופה",
 };
-export const AUTHORITY_SHORT: Record<Authority, string> = { vaad: "בכשרות הוועד", recommended: "בהמלצת הוועד" };
 
 export function TypeTag({ type, className }: { type: KType; className?: string }) {
   return (

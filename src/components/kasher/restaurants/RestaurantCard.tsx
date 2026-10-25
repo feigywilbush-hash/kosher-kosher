@@ -1,7 +1,6 @@
-import { cn } from "@/lib/utils";
 import type { Restaurant } from "@/data/restaurants";
 import { RestaurantImage } from "./RestaurantImage";
-import { AUTHORITY_SHORT, TypeTag } from "./tags";
+import { TypeTag } from "./tags";
 
 export function RestaurantCard({ r, onOpen }: { r: Restaurant; onOpen: (r: Restaurant, el: HTMLElement) => void }) {
   return (
@@ -10,15 +9,12 @@ export function RestaurantCard({ r, onOpen }: { r: Restaurant; onOpen: (r: Resta
         <div className="h-full w-full transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.04]">
           <RestaurantImage r={r} />
         </div>
-        <span
-          className={cn(
-            "absolute right-3 top-3 inline-flex h-7 items-center gap-1.5 rounded-full px-3 text-xs font-bold",
-            r.authority === "vaad" ? "bg-white text-ink" : "bg-ink/80 text-paper backdrop-blur-sm",
-          )}
-        >
-          <span className={cn("h-1.5 w-1.5 rounded-full", r.authority === "vaad" ? "bg-accent" : "bg-sky")} />
-          {AUTHORITY_SHORT[r.authority]}
-        </span>
+        {r.authority === "vaad" && (
+          <span className="absolute right-3 top-3 inline-flex h-7 items-center gap-1.5 rounded-full bg-white px-3 text-xs font-normal text-ink">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            בפיקוח פעיל
+          </span>
+        )}
         {r.status === "בבדיקה" && (
           <span className="absolute left-3 top-3 inline-flex h-7 items-center rounded-full bg-accent px-3 text-xs font-bold text-white">בבדיקה</span>
         )}
