@@ -68,7 +68,7 @@ export function AddRestaurant() {
           </ol>
         </div>
 
-        <div data-reveal="150" className="rounded-[32px] bg-paper p-[clamp(20px,3vw,44px)] text-ink cmp:rounded-[28px] cmp:bg-white cmp:shadow-[0_40px_80px_-40px_rgba(5,11,30,.8)]">
+        <div data-reveal="150" className="rounded-[32px] bg-paper p-[clamp(20px,3vw,44px)] pt-9 text-ink cmp:pt-[clamp(20px,3vw,44px)] cmp:rounded-[28px] cmp:bg-white cmp:shadow-[0_40px_80px_-40px_rgba(5,11,30,.8)]">
           {sent ? (
             <div role="status" className="flex min-h-[520px] flex-col items-center justify-center text-center">
               <span aria-hidden="true" className="grid h-[132px] w-[132px] -rotate-[8deg] place-items-center rounded-full border-[2.5px] border-dashed border-blue">
@@ -90,7 +90,7 @@ export function AddRestaurant() {
           ) : (
             <form onSubmit={submit} noValidate className="grid grid-cols-1 gap-x-4 gap-y-5 cmp:grid-cols-2">
               <div className="cmp:col-span-2">
-                <h3 className="m-0 font-display text-[clamp(32px,2.8vw,44px)] font-normal leading-none">בקשה להוספת מסעדה</h3>
+                <h3 className="m-0 font-display text-[52px] font-normal leading-[.92] cmp:text-[clamp(32px,2.8vw,44px)] cmp:leading-none">בקשה להוספת מסעדה</h3>
                 <p className="mb-0 mt-2 text-[15px] text-muted">שדות המסומנים ב-<span className="text-accent">*</span> הם שדות חובה</p>
               </div>
 
