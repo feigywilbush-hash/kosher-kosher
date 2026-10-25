@@ -107,7 +107,7 @@ export function Hero() {
 
   return (
     <section id="top" ref={sectionRef} data-screen-label="Hero" className="relative px-[2.5vw] pt-24">
-      <div className="relative isolate flex min-h-[calc(100dvh-112px)] flex-col overflow-hidden rounded-[32px] bg-white px-[clamp(22px,4vw,64px)] pb-[clamp(100px,9vw,136px)] pt-6 cmp:pt-[clamp(30px,3.6vw,56px)]">
+      <div className="relative isolate flex min-h-[calc(100dvh-112px)] flex-col overflow-hidden rounded-[32px] bg-white px-[clamp(22px,4vw,64px)] pb-8 pt-6 cmp:pb-[clamp(100px,9vw,136px)] cmp:pt-[clamp(30px,3.6vw,56px)]">
         <div
           aria-hidden="true"
           className="absolute -z-10 aspect-square w-[78%] rounded-full"
