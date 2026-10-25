@@ -144,7 +144,7 @@ export function Hero() {
             </p>
 
             <div data-hero-in="400" className="mt-[clamp(24px,2.6vw,38px)] w-full max-w-[600px]">
-              <div role="group" aria-label="סוג חיפוש" className="mb-3.5 flex gap-2.5">
+              <div role="group" aria-label="סוג חיפוש" className="mb-3.5 flex flex-col gap-2.5 cmp:flex-row">
                 {MODES.map((m) => {
                   const on = mode === m.id;
                   return (
@@ -154,7 +154,7 @@ export function Hero() {
                       onClick={() => setMode(m.id)}
                       aria-pressed={on}
                       className={cn(
-                        "h-[54px] cursor-pointer rounded-full border-[1.5px] px-[30px] text-[17px] font-normal transition-[background,color] duration-[250ms]",
+                        "h-[54px] w-full cmp:w-auto cursor-pointer rounded-full border-[1.5px] px-[30px] text-[17px] font-normal transition-[background,color] duration-[250ms]",
                         on ? "border-ink bg-ink text-white" : "border-ink/20 bg-transparent text-ink",
                       )}
                     >
