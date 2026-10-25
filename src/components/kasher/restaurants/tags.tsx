@@ -10,7 +10,7 @@ export const AUTHORITY_LABEL: Record<Authority, string> = {
 
 export function TypeTag({ type, className }: { type: KType; className?: string }) {
   return (
-    <span className={cn("inline-flex h-8 items-center gap-2 whitespace-nowrap rounded-full px-3.5 text-sm font-bold", TYPE_C[type].bg, TYPE_C[type].fg, className)}>
+    <span className={cn("inline-flex h-8 items-center gap-2 whitespace-nowrap rounded-full px-3.5 text-sm font-normal", TYPE_C[type].bg, TYPE_C[type].fg, className)}>
       <span className={cn("h-[7px] w-[7px] rounded-full", TYPE_DOT[type])} />
       {type}
     </span>
