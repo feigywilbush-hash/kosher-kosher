@@ -122,7 +122,7 @@ export function Scan() {
   const shown = bc.length === 13 ? `${bc[0]} ${bc.slice(1, 7)} ${bc.slice(7)}` : bc;
 
   return (
-    <section id="scan" data-screen-label="Barcode" className="mx-auto max-w-[1480px] scroll-mt-[90px] px-[clamp(20px,4.6vw,80px)] py-[clamp(80px,10vw,160px)]">
+    <section id="scan" data-screen-label="Barcode" className="mx-auto max-w-[1480px] scroll-mt-[90px] px-[clamp(20px,4.6vw,80px)] pb-[clamp(80px,10vw,160px)] pt-6 cmp:pt-[clamp(80px,10vw,160px)]">
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] items-center gap-[clamp(48px,6vw,104px)]">
         <div data-reveal="0">
           <h2 className="mb-0 mt-[18px] font-display text-[clamp(46px,5.6vw,98px)] font-normal leading-[.98] [text-wrap:balance]">
@@ -172,7 +172,7 @@ export function Scan() {
           <ol className="m-0 mt-12 grid max-w-[560px] list-none grid-cols-3 gap-4 p-0" />
         </div>
 
-        <div data-reveal="150" className="relative grid max-[1037px]:order-first min-h-[clamp(280px,30vw,450px)] place-items-center overflow-hidden rounded-[36px] bg-blue px-4 py-6 cmp:px-6 cmp:py-8">
+        <div data-reveal="150" className="relative -mx-[calc(20px-2.5vw)] grid max-[1037px]:order-first cmp:mx-0 min-h-[clamp(280px,30vw,450px)] place-items-center overflow-hidden rounded-[36px] bg-blue px-4 py-6 cmp:px-6 cmp:py-8">
           <div
             aria-hidden="true"
             className="absolute inset-0"
