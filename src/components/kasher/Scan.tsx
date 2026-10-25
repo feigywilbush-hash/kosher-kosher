@@ -172,7 +172,7 @@ export function Scan() {
           <ol className="m-0 mt-12 grid max-w-[560px] list-none grid-cols-3 gap-4 p-0" />
         </div>
 
-        <div data-reveal="150" className="relative grid min-h-[clamp(340px,30vw,450px)] place-items-center overflow-hidden rounded-[36px] bg-blue px-6 py-8">
+        <div data-reveal="150" className="relative grid max-[1037px]:order-first min-h-[clamp(340px,30vw,450px)] place-items-center overflow-hidden rounded-[36px] bg-blue px-6 py-8">
           <div
             aria-hidden="true"
             className="absolute inset-0"
