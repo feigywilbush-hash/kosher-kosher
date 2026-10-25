@@ -35,7 +35,7 @@ export function Footer() {
     <footer
       id="contact"
       data-screen-label="Footer"
-      className="relative scroll-mt-[90px] overflow-hidden pt-[2.5vw] text-paper"
+      className="relative scroll-mt-[90px] overflow-hidden pt-6 text-paper cmp:pt-[2.5vw]"
       style={{ background: "linear-gradient(180deg, var(--footer-top, #EEF2FB) 0, var(--footer-top, #EEF2FB) clamp(140px,16vw,260px), #0C1733 clamp(140px,16vw,260px))" }}
     >
       {/* Donate */}
