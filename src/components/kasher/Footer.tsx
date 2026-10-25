@@ -182,7 +182,7 @@ export function Footer() {
 
       <div aria-hidden="true" className="h-[clamp(110px,9vw,150px)]" />
       <div className="absolute inset-x-0 bottom-0 mx-auto flex max-w-[1480px] flex-wrap justify-between gap-x-6 gap-y-3 px-[clamp(20px,4.6vw,80px)] pb-[120px] pt-[22px] text-[13px] text-mist dsk:pb-12">
-        <span>© 2026 חותם · מערך הכשרות</span>
+        <span>© 2026 כשר כשר · ועד רבני אירופה</span>
         <span className="flex flex-wrap gap-5">
           <a href="#contact" className="text-mist">הצהרת נגישות</a>
           <a href="#contact" className="text-mist">מדיניות פרטיות</a>
