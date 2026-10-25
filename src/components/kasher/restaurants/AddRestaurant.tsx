@@ -45,7 +45,7 @@ export function AddRestaurant() {
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-start gap-[clamp(32px,5vw,88px)]">
         <div data-reveal="0" className="flex flex-col dsk:sticky dsk:top-28">
           <h2 className="m-0 font-display text-[clamp(52px,7.4vw,128px)] font-normal leading-[.92]">
-            מכירים מסעדה <span className="text-sky">כשרה?</span>
+            הצטרפות למערך <span className="text-sky">הכשרות</span>
           </h2>
           <p className="mb-0 mt-6 max-w-[480px] text-[clamp(17px,1.3vw,20px)] leading-[1.65] text-mist [text-wrap:pretty]">
             מסעדה שבכשרות ועד רבני אירופה או בהמלצתו וחסרה ברשימה? שלחו לנו את הפרטים, ואחרי בדיקה מול גוף הכשרות היא תתווסף לאתר.
