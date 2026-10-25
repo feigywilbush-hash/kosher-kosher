@@ -107,7 +107,7 @@ export function Hero() {
 
   return (
     <section id="top" ref={sectionRef} data-screen-label="Hero" className="relative px-[2.5vw] pt-24">
-      <div className="relative isolate flex min-h-[calc(100dvh-112px)] flex-col overflow-hidden rounded-[32px] bg-white px-[clamp(22px,4vw,64px)] pb-[clamp(100px,9vw,136px)] pt-[clamp(30px,3.6vw,56px)]">
+      <div className="relative isolate flex min-h-[calc(100dvh-112px)] flex-col overflow-hidden rounded-[32px] bg-white px-[clamp(22px,4vw,64px)] pb-[clamp(100px,9vw,136px)] pt-6 cmp:pt-[clamp(30px,3.6vw,56px)]">
         <div
           aria-hidden="true"
           className="absolute -z-10 aspect-square w-[78%] rounded-full"
@@ -129,7 +129,7 @@ export function Hero() {
         <div className="relative grid flex-1 grid-cols-[repeat(auto-fit,minmax(min(100%,500px),1fr))] items-center gap-[clamp(40px,4.4vw,72px)] max-[1210px]:gap-y-6">
           {/* Copy */}
           <div className="relative z-[2] min-w-0 max-[1210px]:contents">
-            <h1 className="max-[1210px]:order-1 mb-0 mt-[clamp(20px,2.2vw,30px)] font-display font-normal text-ink">
+            <h1 className="max-[1210px]:order-1 mb-0 mt-0 cmp:mt-[clamp(20px,2.2vw,30px)] font-display font-normal text-ink">
               <span className="block overflow-hidden pb-[.06em] pt-[.08em] text-[clamp(72px,20vw,80px)] cmp:text-[clamp(63px,6.95vw,125px)] leading-[.9] tracking-[-.01em]">
                 <span data-line="0" className="inline-block">
                   כשר <span className="text-blue">כשר.</span>
