@@ -172,7 +172,7 @@ export function Scan() {
           <ol className="m-0 mt-12 grid max-w-[560px] list-none grid-cols-3 gap-4 p-0" />
         </div>
 
-        <div data-reveal="150" className="relative grid max-[1037px]:order-first min-h-[clamp(340px,30vw,450px)] place-items-center overflow-hidden rounded-[36px] bg-blue px-6 py-8">
+        <div data-reveal="150" className="relative grid max-[1037px]:order-first min-h-[clamp(280px,30vw,450px)] place-items-center overflow-hidden rounded-[36px] bg-blue px-4 py-6 cmp:px-6 cmp:py-8">
           <div
             aria-hidden="true"
             className="absolute inset-0"
@@ -181,12 +181,12 @@ export function Scan() {
               backgroundSize: "44px 44px",
             }}
           />
-          <div className="relative w-[min(84%,400px)] p-[26px]">
+          <div className="relative w-[min(100%,400px)] p-[18px] cmp:w-[min(84%,400px)] cmp:p-[26px]">
             {CORNERS.map((c) => (
               <span key={c} aria-hidden="true" className={`absolute h-11 w-11 border-white ${c}`} />
             ))}
-            <div className="rounded-[18px] bg-white px-6 pb-[18px] pt-6 shadow-[0_30px_60px_-24px_rgba(5,11,30,.6)]">
-              <div aria-hidden="true" className="relative h-[clamp(110px,10vw,150px)] [direction:ltr]">
+            <div className="rounded-[18px] bg-white px-4 pb-3.5 pt-4 cmp:px-6 cmp:pb-[18px] cmp:pt-6 shadow-[0_30px_60px_-24px_rgba(5,11,30,.6)]">
+              <div aria-hidden="true" className="relative h-[84px] [direction:ltr] cmp:h-[clamp(110px,10vw,150px)]">
                 <div className="flex h-full">
                   {bars.map((b, i) => (
                     <span key={i} className={b.dark ? "bg-ink" : "bg-transparent"} style={{ flex: b.f }} />
@@ -197,7 +197,7 @@ export function Scan() {
                   <span className="absolute inset-x-0 top-[-1px] h-0.5 rounded-sm bg-[#FF5A3C] shadow-[0_0_12px_3px_rgba(255,90,60,.75),0_0_40px_8px_rgba(208,65,40,.35)]" />
                 </span>
               </div>
-              <div className="mt-2 text-center font-mono text-[15px] tracking-[.3em] [direction:ltr]">{shown}</div>
+              <div className="mt-2 whitespace-nowrap text-center font-mono text-[13px] tracking-[.2em] [direction:ltr] cmp:text-[15px] cmp:tracking-[.3em]">{shown}</div>
             </div>
           </div>
 
