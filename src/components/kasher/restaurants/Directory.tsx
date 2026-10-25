@@ -83,7 +83,7 @@ export function Directory() {
               </span>
             </span>
           </h1>
-          <div data-hero-in="100" className="w-[min(100%,420px)] pb-[clamp(4px,1vw,18px)]">
+          <div data-hero-in="100" className="w-[min(100%,420px)] dsk:mb-[calc(clamp(68px,11vw,196px)*0.107-11px)]">
             <p className="m-0 text-[clamp(17px,1.3vw,20px)] leading-[1.6] text-muted [text-wrap:pretty]">
               מסעדות בכשרות ועד רבני אירופה ובהמלצתו.
               <br />
@@ -173,7 +173,7 @@ export function Directory() {
         </div>
 
         {filtered.length > 0 ? (
-          <div className="mt-[clamp(20px,2.4vw,36px)] grid grid-cols-[repeat(auto-fill,minmax(min(100%,300px),1fr))] gap-[clamp(14px,1.6vw,24px)]">
+          <div className="mt-[clamp(20px,2.4vw,36px)] grid grid-cols-[repeat(auto-fill,minmax(min(100%,300px),1fr))] dsk:grid-cols-4 gap-[clamp(14px,1.6vw,24px)]">
             {filtered.slice(0, limit).map((r) => (
               <RestaurantCard key={r.id} r={r} onOpen={onOpen} />
             ))}
