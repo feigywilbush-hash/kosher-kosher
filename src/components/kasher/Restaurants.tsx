@@ -123,7 +123,7 @@ export function Restaurants() {
           setHover(null);
           setFloatAnim(false);
         }}
-        className="relative mt-7 border-t-[1.5px] border-ink"
+        className="relative mt-7 border-ink cmp:border-t-[1.5px]"
       >
         {/* Floating photo preview (desktop hover) */}
         <div
