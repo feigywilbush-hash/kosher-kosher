@@ -21,11 +21,6 @@ const STAMP_IN: Keyframe[] = [
   { transform: "rotate(-8deg) scale(.92)", opacity: 1, offset: 0.72 },
   { transform: "rotate(-12deg) scale(1)", opacity: 1 },
 ];
-const STAMP_RE: Keyframe[] = [
-  { transform: "rotate(-40deg) scale(2.2)", opacity: 0 },
-  { transform: "rotate(-9deg) scale(.94)", opacity: 1, offset: 0.7 },
-  { transform: "rotate(-12deg) scale(1)", opacity: 1 },
-];
 
 /** Ring tick masks for the rotating dial (container-query units keep them proportional). */
 const ringMask = (w: string): CSSProperties => {
@@ -93,9 +88,8 @@ export function Hero() {
       rotRef.current -= delta * (360 / N);
       setWIdx(j);
       setWRot(rotRef.current);
-      if (!reduced) stampRef.current?.animate(STAMP_RE, { duration: 560, delay: 700, easing: "cubic-bezier(.65,0,.35,1)", fill: "backwards" });
     },
-    [reduced],
+    [],
   );
 
   useEffect(() => {
