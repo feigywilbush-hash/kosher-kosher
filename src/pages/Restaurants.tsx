@@ -8,7 +8,7 @@ const RestaurantsPage = () => {
   return (
     <SiteShell>
       {/* On phones the whole page sits on white instead of tinted boxes. */}
-      <div className="flow-root bg-white cmp:bg-transparent">
+      <div className="flow-root bg-white pb-8 cmp:bg-transparent cmp:pb-0">
         <Directory />
         <AddRestaurant />
       </div>
