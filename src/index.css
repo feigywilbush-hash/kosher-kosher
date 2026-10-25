@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face { font-family: "Manhattan"; src: url("/fonts/Manhattan-650.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Polin"; src: url("/fonts/Polin-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Polin"; src: url("/fonts/Polin-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+@layer base {
+  :root {
+    --ink: 223.1 61.9% 12.4%;          /* #0C1733 */
+    --navy: 226.8 68.1% 22.2%;         /* #12235F */
+    --blue: 228.1 71.5% 48.2%;         /* #2346D3 */
+    --sky: 227.3 100% 77.8%;           /* #8EA6FF */
+    --paper: 221.5 61.9% 95.9%;        /* #EEF2FB */
+    --muted: 225.7 23.7% 38%;          /* #4A5578 */
+    --mist: 225.3 35.4% 75.1%;         /* #A9B4D6 */
+    --soft: 225.4 46.8% 84.5%;         /* #C5CEEA */
+    --tint: 223.2 55.6% 91.2%;         /* #DCE3F5 */
+    --deep: 227.6 62.2% 29%;           /* #1C2F78 */
+    --accent: 8.9 67.7% 48.6%;         /* #D04128 */
+    --accent-hover: 9.2 72.1% 40.8%;   /* #B3341D */
+    --meat: 9.6 72.5% 37.1%;           /* #A3301A */
+    --meat-bg: 12.5 75% 93.7%;         /* #FBE8E3 */
+    --dairy-bg: 227.1 100% 94.5%;      /* #E3E9FF */
+    --parve-bg: 222.9 35% 92.2%;       /* #E4E8F2 */
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: hsl(var(--paper));
+    color: hsl(var(--ink));
+    font-family: "Polin", system-ui, sans-serif;
+    line-height: normal;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  :where(a) { color: hsl(var(--blue)); text-decoration: none; }
+  :where(a:hover) { color: hsl(var(--accent)); }
+  input, button, select, textarea { font: inherit; }
+  input::placeholder, textarea::placeholder { opacity: 1; color: #757575; }
+  ::selection { background: hsl(var(--accent)); color: #fff; }
+  :focus-visible { outline: 3px solid hsl(var(--accent)); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+}
+
+/* Hero strip icon micro-animations */
+@keyframes kk-scan { from { top: 0; } to { top: calc(100% - 1.5px); } }
+@keyframes kk-steam {
+  0% { transform: translateY(3px) scaleY(.4); opacity: 0; }
+  50% { transform: translateY(-1px) scaleY(1); opacity: 1; }
+  100% { transform: translateY(-4px) scaleY(.6); opacity: 0; }
+}
+@keyframes kk-spin { 0%, 100% { transform: scaleX(1); } 50% { transform: scaleX(.05); } }
+@keyframes kk-dot {
+  0%, 100% { transform: translateY(0); opacity: .4; }
+  50% { transform: translateY(-2.5px); opacity: 1; }
+}
+.kk-scan { animation: kk-scan 1.3s cubic-bezier(.45,0,.55,1) infinite alternate; }
+.kk-steam { animation: kk-steam 1.8s ease-in-out infinite; }
+.kk-spin { animation: kk-spin 3.2s linear infinite; }
+.kk-dot { animation: kk-dot 1s ease infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .kk-scan, .kk-steam, .kk-spin, .kk-dot { animation: none; }
+}
