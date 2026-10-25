@@ -13,7 +13,8 @@ const COUNTRIES = [...new Set(RESTAURANTS.map((r) => r.country))].sort((a, b) =>
 const TYPES: ("הכל" | KType)[] = ["הכל", "בשרי", "חלבי", "פרווה"];
 const AUTHS: ("הכל" | Authority)[] = ["הכל", "vaad", "recommended"];
 const AUTH_CHIP: Record<"הכל" | Authority, string> = { "הכל": "הכל", vaad: "בפיקוח ועד רבני אירופה", recommended: "בהמלצת ועד רבני אירופה" };
-const PAGE = 20;
+/** Restaurants shown per "load more" step: fewer on phones, where each card fills the screen. */
+const pageSize = () => (typeof window !== "undefined" && window.matchMedia("(max-width: 759px)").matches ? 15 : 20);
 
 const norm = (s: string) => s.toLowerCase().replace(/['"׳״`]/g, "");
 const haystack = (r: Restaurant) => norm([r.name, r.city, r.country, r.description, r.address].join(" "));
@@ -23,7 +24,8 @@ export function Directory() {
   const [type, setType] = useState<"הכל" | KType>("הכל");
   const [auth, setAuth] = useState<"הכל" | Authority>("הכל");
   const [rq, setRq] = useState("");
-  const [limit, setLimit] = useState(PAGE);
+  const [page] = useState(pageSize);
+  const [limit, setLimit] = useState(page);
   const [open, setOpen] = useState<Restaurant | null>(null);
   const opener = useRef<HTMLElement | null>(null);
 
@@ -44,12 +46,12 @@ export function Directory() {
     setType("הכל");
     setAuth("הכל");
     setRq("");
-    setLimit(PAGE);
+    setLimit(page);
   };
   // Any filter change starts the list from the top again.
   const withReset = <T,>(set: (v: T) => void) => (v: T) => {
     set(v);
-    setLimit(PAGE);
+    setLimit(page);
   };
 
   const onOpen = useCallback((r: Restaurant, el: HTMLElement) => {
@@ -198,7 +200,7 @@ export function Directory() {
           <div className="mt-[clamp(32px,3.6vw,56px)] flex justify-center">
             <button
               type="button"
-              onClick={() => setLimit((l) => l + PAGE)}
+              onClick={() => setLimit((l) => l + page)}
               className="inline-flex h-[52px] cursor-pointer items-center gap-2.5 rounded-full border-none bg-ink px-[26px] text-base font-normal text-white hover:bg-blue"
             >
               הצגת עוד מסעדות
