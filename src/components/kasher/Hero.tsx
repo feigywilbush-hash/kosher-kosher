@@ -172,7 +172,7 @@ export function Hero() {
             <div
               onMouseEnter={() => (hoverRef.current = true)}
               onMouseLeave={() => (hoverRef.current = false)}
-              className="relative aspect-square w-full [container-type:inline-size]"
+              className="relative mb-[115px] aspect-square w-full [container-type:inline-size] cmp:mb-0"
             >
               <div aria-hidden="true" className="absolute inset-[-5%] rounded-full border-[1.5px] border-dashed border-navy/[.28]" />
               <div aria-hidden="true" className="absolute inset-[-5%]">
@@ -249,7 +249,7 @@ export function Hero() {
               />
 
               {/* Dish ticket */}
-              <div className="absolute bottom-[-2%] left-[-4%] z-[4]">
+              <div className="absolute left-[22px] top-[88%] z-[4] cmp:bottom-[-2%] cmp:left-[-4%] cmp:top-auto">
                 <div data-pop="1100" className="relative">
                   <div
                     className="rounded-[20px] bg-white px-[18px] pb-3.5 pt-[30px] text-ink shadow-[0_30px_60px_-24px_rgba(12,23,51,.55),0_0_0_1px_rgba(12,23,51,.06)]"
