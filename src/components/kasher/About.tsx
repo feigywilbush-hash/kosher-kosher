@@ -11,7 +11,7 @@ export function About() {
     <section
       id="about"
       data-screen-label="About"
-      className="mx-auto max-w-[1480px] scroll-mt-[90px] px-[clamp(20px,4.6vw,80px)] pb-[clamp(80px,9vw,140px)] pt-[clamp(96px,12vw,180px)]"
+      className="mx-auto max-w-[1480px] scroll-mt-[90px] px-[clamp(20px,4.6vw,80px)] pb-[clamp(80px,9vw,140px)] pt-12 cmp:pt-[clamp(96px,12vw,180px)]"
     >
       <div className="mt-8 grid grid-cols-[repeat(auto-fit,minmax(min(100%,460px),1fr))] items-end gap-[clamp(32px,6vw,100px)]">
         <div id="about-statement" data-reveal="0" className="flex w-full max-w-[640px] flex-col gap-[clamp(18px,2vw,28px)] self-center [container-type:inline-size]">
