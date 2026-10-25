@@ -1,6 +1,6 @@
 import { useState, type FormEvent, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import { TYPE_DOT, type KType } from "../data";
+import { type KType } from "../data";
 
 const COUNTRY_OPTS = ["קפריסין", "יוון", "תאילנד", "הונגריה", "בריטניה", "אוקראינה", "אחר"];
 const TYPES: KType[] = ["בשרי", "חלבי", "פרווה"];
@@ -118,30 +118,29 @@ export function AddRestaurant() {
                 <input id="ar-city" name="city" required className={input} />
               </Field>
 
-              <fieldset className="m-0 flex flex-col gap-2 border-none p-0 cmp:col-span-2">
-                <legend className="mb-2 p-0 text-sm font-bold">סוג המסעדה</legend>
-                <div className="flex gap-1 rounded-full bg-paper p-1">
-                  {TYPES.map((t) => {
-                    const on = type === t;
-                    return (
-                      <button
-                        key={t}
-                        type="button"
-                        onClick={() => setType(on ? "" : t)}
-                        aria-pressed={on}
-                        className={cn(
-                          "flex h-12 flex-1 cursor-pointer items-center justify-center gap-2 rounded-full border-none text-[15px] font-bold transition-all duration-[250ms]",
-                          on ? "bg-white text-ink shadow-[0_6px_16px_-8px_rgba(12,23,51,.35)]" : "bg-transparent text-muted hover:text-ink",
-                        )}
-                      >
-                        <span className={cn("h-2 w-2 rounded-full", TYPE_DOT[t])} />
+              <Field id="ar-type" label="סוג המסעדה" className="cmp:col-span-2">
+                <span className="relative">
+                  <select
+                    id="ar-type"
+                    name="type"
+                    value={type}
+                    onChange={(e) => setType(e.target.value as KType | "")}
+                    className={cn(input, "cursor-pointer appearance-none pe-10", !type && "text-[#757575]")}
+                  >
+                    <option value="" disabled>
+                      בחירת סוג
+                    </option>
+                    {TYPES.map((t) => (
+                      <option key={t} className="text-ink">
                         {t}
-                      </button>
-                    );
-                  })}
-                </div>
-                <input type="hidden" name="type" value={type} />
-              </fieldset>
+                      </option>
+                    ))}
+                  </select>
+                  <span aria-hidden="true" className="pointer-events-none absolute left-[18px] top-1/2 -translate-y-1/2 text-sm">
+                    ▾
+                  </span>
+                </span>
+              </Field>
 
               <Field id="ar-cert" label="גוף הכשרות / תעודה">
                 <input id="ar-cert" name="certificate" placeholder="לדוגמה: ועד רבני אירופה" className={input} />
