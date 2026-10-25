@@ -62,8 +62,8 @@ export function Directory() {
   }, []);
 
   return (
-    <section id="directory" data-screen-label="Restaurants directory" className="relative px-[2.5vw] pt-24">
-      <div className="rounded-[32px] bg-white px-[clamp(20px,4.6vw,80px)] pb-[clamp(48px,7vw,112px)] pt-[clamp(28px,3.6vw,56px)]">
+    <section id="directory" data-screen-label="Restaurants directory" className="relative bg-white pt-24 cmp:bg-transparent cmp:px-[2.5vw]">
+      <div className="bg-white px-[clamp(20px,4.6vw,80px)] cmp:rounded-[32px] pb-[clamp(48px,7vw,112px)] pt-[clamp(28px,3.6vw,56px)]">
         <nav aria-label="פירורי לחם" data-hero-in="0" className="flex items-center gap-2 text-sm text-muted">
           <SiteLink to="/" className="text-muted hover:text-blue">
             דף הבית
