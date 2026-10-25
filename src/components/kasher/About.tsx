@@ -13,7 +13,7 @@ export function About() {
       data-screen-label="About"
       className="mx-auto max-w-[1480px] scroll-mt-[90px] px-[clamp(20px,4.6vw,80px)] pb-[clamp(80px,9vw,140px)] pt-6 cmp:pt-[clamp(96px,12vw,180px)]"
     >
-      <div className="mt-0 cmp:mt-8 grid grid-cols-[repeat(auto-fit,minmax(min(100%,460px),1fr))] items-end gap-[clamp(32px,6vw,100px)]">
+      <div className="mt-0 cmp:mt-8 grid grid-cols-[repeat(auto-fit,minmax(min(100%,460px),1fr))] min-[1083px]:grid-cols-[minmax(0,496px)_minmax(0,1fr)] items-end gap-[clamp(32px,6vw,100px)]">
         <div id="about-statement" data-reveal="0" className="flex w-full max-w-[640px] flex-col gap-[clamp(18px,2vw,28px)] self-center [container-type:inline-size]">
           <h2 className="m-0 font-display text-[clamp(48px,5.6vw,98px)] font-normal leading-[.92] text-ink">הרב ידידיה כהן שליט"א</h2>
           <div className="mt-[calc(-1*clamp(12px,1.6vw,22px))] font-display text-[clamp(48px,5.6vw,98px)] leading-none text-blue">
