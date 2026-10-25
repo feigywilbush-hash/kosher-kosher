@@ -40,10 +40,10 @@ export function AddRestaurant() {
     <section
       id="add-restaurant"
       data-screen-label="Add restaurant"
-      className="mx-[2.5vw] mt-6 scroll-mt-[90px] rounded-[32px] bg-navy px-[clamp(20px,4.6vw,80px)] py-[clamp(36px,5.4vw,88px)] text-paper"
+      className="mx-[2.5vw] mt-6 scroll-mt-[90px] text-paper cmp:rounded-[32px] cmp:bg-navy cmp:px-[clamp(20px,4.6vw,80px)] cmp:py-[clamp(36px,5.4vw,88px)]"
     >
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-start gap-[clamp(32px,5vw,88px)]">
-        <div data-reveal="0" className="flex flex-col dsk:sticky dsk:top-28">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-start gap-6 cmp:gap-[clamp(32px,5vw,88px)]">
+        <div data-reveal="0" className="flex flex-col rounded-[32px] bg-navy px-5 py-9 cmp:rounded-none cmp:bg-transparent cmp:p-0 dsk:sticky dsk:top-28">
           <h2 className="m-0 font-display text-[clamp(52px,7.4vw,128px)] font-normal leading-[.92]">
             הצטרפות למערך <span className="text-sky">הכשרות</span>
           </h2>
@@ -68,7 +68,7 @@ export function AddRestaurant() {
           </ol>
         </div>
 
-        <div data-reveal="150" className="rounded-[28px] bg-white p-[clamp(20px,3vw,44px)] text-ink shadow-[0_40px_80px_-40px_rgba(5,11,30,.8)]">
+        <div data-reveal="150" className="rounded-[32px] bg-paper p-[clamp(20px,3vw,44px)] text-ink cmp:rounded-[28px] cmp:bg-white cmp:shadow-[0_40px_80px_-40px_rgba(5,11,30,.8)]">
           {sent ? (
             <div role="status" className="flex min-h-[520px] flex-col items-center justify-center text-center">
               <span aria-hidden="true" className="grid h-[132px] w-[132px] -rotate-[8deg] place-items-center rounded-full border-[2.5px] border-dashed border-blue">
