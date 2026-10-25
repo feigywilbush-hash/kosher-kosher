@@ -139,7 +139,7 @@ export function Hero() {
                 <span data-line="1" className="inline-block">הבית שלכם לכשרות בעולם, מבית ועד רבני אירופה</span>
               </span>
             </h1>
-            <p data-hero-in="250" className="max-[1210px]:order-3 mb-0 mt-[clamp(20px,2.2vw,30px)] max-[1210px]:mt-0 max-w-[500px] text-[clamp(17px,1.3vw,20px)] leading-[1.65] text-muted [text-wrap:pretty]">
+            <p data-hero-in="250" className="max-[1210px]:order-3 mb-0 mt-[clamp(20px,2.2vw,30px)] max-[1210px]:mt-0 max-w-[500px] text-center text-[clamp(17px,1.3vw,20px)] cmp:text-start leading-[1.65] text-muted [text-wrap:pretty]">
               מסעדות בהשגחה, מוצרים מאושרים ורב אחראי שזמין לכם, בארץ ובעשרות יעדים בעולם. בודקים לפני שיוצאים, אוכלים בראש שקט כשמגיעים.
             </p>
 
