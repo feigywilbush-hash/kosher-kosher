@@ -143,7 +143,7 @@ export function Hero() {
               מסעדות בהשגחה, מוצרים מאושרים ורב אחראי שזמין לכם, בארץ ובעשרות יעדים בעולם. בודקים לפני שיוצאים, אוכלים בראש שקט כשמגיעים.
             </p>
 
-            <div data-hero-in="400" className="max-[1210px]:order-4 mt-[clamp(24px,2.6vw,38px)] max-[1210px]:mt-0 w-full max-w-[600px]">
+            <div data-hero-in="400" className="hidden max-[1210px]:order-4 cmp:block mt-[clamp(24px,2.6vw,38px)] max-[1210px]:mt-0 w-full max-w-[600px]">
               <div role="group" aria-label="סוג חיפוש" className="mb-3.5 flex flex-col gap-2.5 cmp:flex-row">
                 {MODES.map((m) => {
                   const on = mode === m.id;
