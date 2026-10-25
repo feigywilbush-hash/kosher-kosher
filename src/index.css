@@ -69,3 +69,10 @@
 @keyframes kk-pin { 0% { box-shadow: 0 0 0 0 rgba(208,65,40,.6); } 100% { box-shadow: 0 0 0 18px rgba(208,65,40,0); } }
 .kk-pin { animation: kk-pin 1.8s ease-out infinite; }
 @media (prefers-reduced-motion: reduce) { .kk-pin { animation: none; } }
+
+/* Restaurants page on phones sits on white, so the band above the donate box follows. */
+@media (max-width: 759px) {
+  body:has(#add-restaurant) #contact {
+    --footer-top: #fff;
+  }
+}
