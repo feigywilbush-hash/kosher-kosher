@@ -85,7 +85,9 @@ export function Directory() {
           </h1>
           <div data-hero-in="100" className="w-[min(100%,420px)] pb-[clamp(4px,1vw,18px)]">
             <p className="m-0 text-[clamp(17px,1.3vw,20px)] leading-[1.6] text-muted [text-wrap:pretty]">
-              מסעדות בכשרות ועד רבני אירופה ובהמלצתו, בקפריסין, יוון, תאילנד והונגריה. סננו לפי יעד וסוג, ובדקו את פרטי ההשגחה לפני שמגיעים.
+              מסעדות בכשרות ועד רבני אירופה ובהמלצתו.
+              <br />
+              סננו לפי יעד וסוג, ובדקו את פרטי ההשגחה לפני שמגיעים.
             </p>
           </div>
         </div>
