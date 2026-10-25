@@ -13,7 +13,6 @@ const COUNTRIES = [...new Set(RESTAURANTS.map((r) => r.country))].sort((a, b) =>
 const TYPES: ("הכל" | KType)[] = ["הכל", "בשרי", "חלבי", "פרווה"];
 const AUTHS: ("הכל" | Authority)[] = ["הכל", "vaad", "recommended"];
 const PAGE = 12;
-const VAAD_COUNT = RESTAURANTS.filter((r) => r.authority === "vaad").length;
 
 const norm = (s: string) => s.toLowerCase().replace(/['"׳״`]/g, "");
 const haystack = (r: Restaurant) => norm([r.name, r.city, r.country, r.description, r.address].join(" "));
@@ -83,22 +82,10 @@ export function Directory() {
               </span>
             </span>
           </h1>
-          <div data-hero-in="100" className="flex w-[min(100%,420px)] flex-col gap-5 pb-[clamp(4px,1vw,18px)]">
+          <div data-hero-in="100" className="w-[min(100%,420px)] pb-[clamp(4px,1vw,18px)]">
             <p className="m-0 text-[clamp(17px,1.3vw,20px)] leading-[1.6] text-muted [text-wrap:pretty]">
               מסעדות בכשרות ועד רבני אירופה ובהמלצתו, בקפריסין, יוון, תאילנד והונגריה. סננו לפי יעד וסוג, ובדקו את פרטי ההשגחה לפני שמגיעים.
             </p>
-            <dl className="m-0 flex gap-[clamp(20px,2.4vw,36px)] border-t border-ink/[.16] pt-4">
-              {[
-                [RESTAURANTS.length, "מסעדות"],
-                [COUNTRIES.length, "מדינות"],
-                [VAAD_COUNT, "בכשרות הוועד"],
-              ].map(([n, l]) => (
-                <div key={l} className="flex flex-col gap-1">
-                  <dt className="order-2 text-sm text-muted">{l}</dt>
-                  <dd className="m-0 font-display text-[clamp(36px,3.4vw,52px)] leading-none">{n}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
         </div>
 
@@ -140,7 +127,7 @@ export function Directory() {
                     onClick={() => withReset(setType)(t)}
                     aria-pressed={on}
                     className={cn(
-                      "flex h-12 flex-1 cursor-pointer items-center justify-center gap-2 rounded-full border-none px-3 text-[15px] cmp:flex-none cmp:px-[18px] font-bold transition-all duration-[250ms]",
+                      "flex h-12 flex-1 cursor-pointer items-center justify-center gap-2 rounded-full border-none px-3 text-[15px] cmp:flex-none cmp:px-[18px] font-normal transition-all duration-[250ms]",
                       on ? "bg-ink text-white" : "bg-transparent text-muted hover:text-ink",
                     )}
                   >
@@ -184,7 +171,7 @@ export function Directory() {
                     onClick={() => withReset(setAuth)(a)}
                     aria-pressed={on}
                     className={cn(
-                      "flex h-10 cursor-pointer items-center justify-center gap-2 rounded-full border-none px-4 text-sm font-bold transition-all duration-[250ms]",
+                      "flex h-10 cursor-pointer items-center justify-center gap-2 rounded-full border-none px-4 text-[15px] font-normal transition-all duration-[250ms]",
                       on ? "bg-blue text-white" : "bg-transparent text-muted hover:text-ink",
                     )}
                   >
