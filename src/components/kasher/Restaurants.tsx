@@ -46,7 +46,7 @@ export function Restaurants() {
     >
       <div className="flex flex-wrap items-end justify-between gap-8">
         <div data-reveal="0">
-          <h2 className="mb-0 mt-3.5 flex items-start gap-3.5 font-display text-[clamp(68px,11vw,196px)] font-normal leading-[.86]">מסעדות</h2>
+          <h2 className="mb-0 mt-3.5 flex items-start gap-3.5 font-display text-[clamp(68px,11vw,196px)] font-normal leading-[.86]">מסעדות כשרות</h2>
         </div>
         <div data-reveal="150" className="w-[min(100%,380px)]">
           <label htmlFor="rest-q" className="mb-1.5 block text-sm font-bold">

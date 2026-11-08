@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
-import { COUNTRIES, DISHES, EASE_IO, TYPE_C, TYPE_DOT, asset } from "./data";
+import { HERO_COUNTRIES as COUNTRIES, DISHES, EASE_IO, TYPE_C, TYPE_DOT, asset } from "./data";
 import { SiteLink } from "./SiteLink";
 
 const MODES = [
@@ -67,12 +67,16 @@ export function Hero() {
   const [mode, setMode] = useState<(typeof MODES)[number]["id"]>("product");
   const [wIdx, setWIdx] = useState(0);
   const [wRot, setWRot] = useState(0);
+  const [dragging, setDragging] = useState(false);
 
   const idxRef = useRef(0);
   const rotRef = useRef(0);
   const hoverRef = useRef(false);
   const visRef = useRef(true);
   const sectionRef = useRef<HTMLElement>(null);
+  const dialRef = useRef<HTMLDivElement>(null);
+  const dragRef = useRef<{ id: number; a0: number; r0: number; moved: boolean } | null>(null);
+  const suppressClickRef = useRef(false);
 
   const goWorld = useCallback(
     (j: number) => {
@@ -86,6 +90,49 @@ export function Hero() {
     },
     [],
   );
+
+  const angleAt = (x: number, y: number) => {
+    const r = dialRef.current!.getBoundingClientRect();
+    return (Math.atan2(y - (r.top + r.height / 2), x - (r.left + r.width / 2)) * 180) / Math.PI;
+  };
+  const onDown = (e: React.PointerEvent) => {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    dragRef.current = { id: e.pointerId, a0: angleAt(e.clientX, e.clientY), r0: rotRef.current, moved: false };
+    hoverRef.current = true;
+  };
+  const onMove = (e: React.PointerEvent) => {
+    const d = dragRef.current;
+    if (!d || d.id !== e.pointerId) return;
+    let delta = angleAt(e.clientX, e.clientY) - d.a0;
+    delta = ((((delta + 180) % 360) + 360) % 360) - 180;
+    if (!d.moved) {
+      if (Math.abs(delta) < 4) return;
+      d.moved = true;
+      setDragging(true);
+      try {
+        (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+      } catch {}
+    }
+    d.a0 += delta;
+    rotRef.current += delta;
+    setWRot(rotRef.current);
+  };
+  const onUp = (e: React.PointerEvent) => {
+    const d = dragRef.current;
+    if (!d || d.id !== e.pointerId) return;
+    dragRef.current = null;
+    if (e.pointerType !== "mouse") hoverRef.current = false;
+    if (!d.moved) return;
+    suppressClickRef.current = true;
+    setTimeout(() => (suppressClickRef.current = false), 0);
+    const step = 360 / N;
+    const k = Math.round(-rotRef.current / step);
+    rotRef.current = -k * step;
+    idxRef.current = ((k % N) + N) % N;
+    setDragging(false);
+    setWIdx(idxRef.current);
+    setWRot(rotRef.current);
+  };
 
   useEffect(() => {
     if (reduced) return;
@@ -103,7 +150,7 @@ export function Hero() {
 
   const cur = COUNTRIES[wIdx];
   const dish = DISHES[cur.code];
-  const dialEase = `1.2s ${EASE_IO}`;
+  const dialEase = dragging ? "0s" : `1.2s ${EASE_IO}`;
 
   return (
     <section id="top" ref={sectionRef} data-screen-label="Hero" className="relative px-[2.5vw] pt-24">
@@ -181,7 +228,19 @@ export function Hero() {
 
               <div
                 data-dial="1"
-                className="absolute inset-0 overflow-hidden rounded-full bg-ink shadow-[0_60px_120px_-50px_rgba(12,23,51,.7),inset_0_0_0_1px_rgba(238,242,251,.08)]"
+                ref={dialRef}
+                onPointerDown={onDown}
+                onPointerMove={onMove}
+                onPointerUp={onUp}
+                onPointerCancel={onUp}
+                onClickCapture={(e) => {
+                  if (suppressClickRef.current) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                  }
+                }}
+                onDragStart={(e) => e.preventDefault()}
+                className="absolute inset-0 cursor-grab touch-pan-y select-none overflow-hidden rounded-full active:cursor-grabbing bg-ink shadow-[0_60px_120px_-50px_rgba(12,23,51,.7),inset_0_0_0_1px_rgba(238,242,251,.08)]"
               >
                 <div className="absolute inset-0" style={{ transform: `rotate(${wRot}deg)`, transition: `transform ${dialEase}` }}>
                   <div

@@ -12,6 +12,12 @@ export const COUNTRIES = [
   { code: "UA", name: "אוקראינה", cities: "קייב · אומן · אודסה" },
 ] as const;
 
+/** Destinations on the hero dial (the world map keeps COUNTRIES). */
+export const HERO_COUNTRIES: readonly { code: string; name: string; cities: string }[] = [
+  ...COUNTRIES,
+  { code: "AE", name: "דובאי", cities: "דאון־טאון · מרינה · ג׳ומיירה" },
+];
+
 export const TYPE_C: Record<KType, { bg: string; fg: string }> = {
   "בשרי": { bg: "bg-meat-bg", fg: "text-meat" },
   "חלבי": { bg: "bg-dairy-bg", fg: "text-blue" },
@@ -26,6 +32,7 @@ export const DISHES: Record<string, { dish: string; type: KType; src: string }> 
   TH: { dish: "פאד תאי עוף", type: "בשרי", src: asset("images/dish-th.jpg") },
   HU: { dish: "גולאש בקר", type: "בשרי", src: asset("images/dish-hu.jpg") },
   UA: { dish: "וארניקי תפוחי אדמה", type: "פרווה", src: asset("images/dish-ua.jpg") },
+  AE: { dish: "שווארמה עוף ואורז", type: "בשרי", src: asset("images/dish-ae.jpg") },
 };
 
 export const PLACE_IMG: Record<string, string> = {
@@ -66,7 +73,7 @@ export const NAV = [
   { label: "מסעדות כשרות", href: "/restaurants" },
   { label: "כשרות בעולם", href: "/#world" },
   { label: "שאלות ותשובות", href: "/#qa" },
-  { label: "רשימת רבנים", href: "/#about" },
+  { label: "רבני כשר כשר", href: "/#about" },
   { label: "בית הדין", href: "/#about" },
 ];
 

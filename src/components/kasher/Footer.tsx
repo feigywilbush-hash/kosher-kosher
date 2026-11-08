@@ -4,11 +4,11 @@ import { NAV, asset } from "./data";
 import { SiteLink } from "./SiteLink";
 
 const AMOUNTS = [
-  { v: 18, goal: "ביקור משגיח" },
-  { v: 36, goal: "בדיקת מוצר חדש" },
-  { v: 180, goal: "יום השגחה בחו״ל" },
-  { v: 360, goal: "הכשרת משגיח" },
+  { v: 18, goal: "בדיקת מוצר" },
+  { v: 180, goal: "בדיקת 10 מוצרים" },
+  { v: 360, goal: "בדיקת 20 מוצרים" },
 ];
+const FREE = 0;
 const FREQS = [
   { id: "once", label: "חד־פעמי" },
   { id: "monthly", label: "הוראת קבע" },
@@ -28,6 +28,10 @@ const fieldLabel = "block text-[13px] font-bold text-sky";
 
 export function Footer() {
   const [amount, setAmount] = useState(180);
+  const [custom, setCustom] = useState("");
+  const isFree = amount === FREE;
+  const customNum = Number(custom);
+  const shown = isFree ? (custom && customNum > 0 ? customNum : null) : amount;
   const [freq, setFreq] = useState<(typeof FREQS)[number]["id"]>("once");
   const [sent, setSent] = useState(false);
 
@@ -63,7 +67,7 @@ export function Footer() {
               </button>
             ))}
           </div>
-          <div className="mb-2.5 mt-[22px] text-sm font-normal">סכום התרומה</div>
+          <div className="mb-2.5 mt-[22px] text-sm font-normal">השותפות שלכם</div>
           <div role="group" aria-label="סכום" className="grid grid-cols-2 gap-2 cmp:grid-cols-4">
             {AMOUNTS.map((a) => {
               const on = amount === a.v;
@@ -83,12 +87,40 @@ export function Footer() {
                 </button>
               );
             })}
+            <button
+              type="button"
+              onClick={() => setAmount(FREE)}
+              aria-pressed={isFree}
+              className={cn(
+                "flex min-h-[76px] cursor-pointer flex-col items-center justify-center gap-1 rounded-2xl border-[1.5px] px-1.5 py-2.5 font-body transition-all duration-200",
+                isFree ? "border-ink bg-ink text-white" : "border-ink/[.16] bg-white text-ink",
+              )}
+            >
+              <span className="text-[22px] font-bold leading-none">₪ ?</span>
+              <span className={cn("text-center text-xs font-normal leading-[1.25]", isFree ? "text-soft" : "text-muted")}>סכום חופשי</span>
+            </button>
           </div>
+          {isFree && (
+            <div className="mt-2 flex h-14 items-center gap-2 rounded-2xl border-[1.5px] border-ink/[.16] px-4 focus-within:border-ink">
+              <span className="text-lg font-bold">₪</span>
+              <input
+                type="number"
+                inputMode="numeric"
+                min={1}
+                autoFocus
+                aria-label="סכום חופשי"
+                placeholder="הסכום שלכם"
+                value={custom}
+                onChange={(e) => setCustom(e.target.value)}
+                className="h-full w-full border-0 bg-transparent text-lg text-ink outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+              />
+            </div>
+          )}
           <a
             href="#donate"
             className="mt-[18px] flex h-16 items-center justify-center gap-2.5 rounded-full bg-accent text-lg font-normal text-white hover:bg-accent-hover hover:text-white"
           >
-            {`לתרומה של ₪${amount}${freq === "monthly" ? " בחודש" : ""}`} <span aria-hidden="true">←</span>
+            {shown ? `לתרומה של ₪${shown}${freq === "monthly" ? " בחודש" : ""}` : "לתרומה"} <span aria-hidden="true">←</span>
           </a>
           <div className="mt-3 text-center text-[13px] text-muted">תשלום מאובטח · קבלה נשלחת במייל</div>
         </div>

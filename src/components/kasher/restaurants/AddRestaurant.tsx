@@ -90,7 +90,7 @@ export function AddRestaurant() {
           ) : (
             <form onSubmit={submit} noValidate className="grid grid-cols-1 gap-x-4 gap-y-5 cmp:grid-cols-2">
               <div className="cmp:col-span-2">
-                <h3 className="m-0 font-display text-[52px] font-normal leading-[.92] cmp:text-[clamp(32px,2.8vw,44px)] cmp:leading-none">בקשה להוספת מסעדה</h3>
+                <h3 className="m-0 font-display text-[52px] font-normal leading-[.92] cmp:text-[clamp(32px,2.8vw,44px)] cmp:leading-none">הצטרפות למערך הכשרות</h3>
                 <p className="mb-0 mt-2 text-[15px] text-muted">שדות המסומנים ב-<span className="text-accent">*</span> הם שדות חובה</p>
               </div>
 
@@ -142,13 +142,6 @@ export function AddRestaurant() {
                 </span>
               </Field>
 
-              <Field id="ar-cert" label="גוף הכשרות / תעודה">
-                <input id="ar-cert" name="certificate" placeholder="לדוגמה: ועד רבני אירופה" className={input} />
-              </Field>
-              <Field id="ar-addr" label="כתובת או קישור למפה">
-                <input id="ar-addr" name="address" className={input} />
-              </Field>
-
               <div className="my-1 border-t-[1.5px] border-dashed border-ink/25 cmp:col-span-2" />
 
               <Field id="ar-contact" label="שם הפונה" required>
@@ -158,7 +151,7 @@ export function AddRestaurant() {
                 <input id="ar-phone" name="phone" type="tel" required autoComplete="tel" dir="ltr" className={cn(input, "text-right")} />
               </Field>
               <Field id="ar-notes" label="הערות" className="cmp:col-span-2">
-                <textarea id="ar-notes" name="notes" rows={4} className={cn(input, "h-auto resize-y py-4 leading-[1.5]")} />
+                <input id="ar-notes" name="notes" className={input} />
               </Field>
 
               <div className="flex flex-wrap items-center justify-between gap-4 pt-2 cmp:col-span-2">
