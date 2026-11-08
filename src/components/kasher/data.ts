@@ -32,7 +32,7 @@ export const DISHES: Record<string, { dish: string; type: KType; src: string }> 
   TH: { dish: "פאד תאי עוף", type: "בשרי", src: asset("images/dish-th.jpg") },
   HU: { dish: "גולאש בקר", type: "בשרי", src: asset("images/dish-hu.jpg") },
   UA: { dish: "וארניקי תפוחי אדמה", type: "פרווה", src: asset("images/dish-ua.jpg") },
-  AE: { dish: "שווארמה עוף ואורז", type: "בשרי", src: asset("images/dish-ae.jpg") },
+  AE: { dish: "שווארמה עוף ואורז", type: "בשרי", src: asset("images/dish-dubai.jpg") },
 };
 
 export const PLACE_IMG: Record<string, string> = {
