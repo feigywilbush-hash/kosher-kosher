@@ -43,7 +43,7 @@ export function Header() {
           )}
         >
           <SiteLink to="/" aria-label="כשר כשר, ועד רבני אירופה. לדף הבית" className="flex items-center gap-3 text-ink hover:text-ink">
-            <LogoMark className="relative top-[1.5px] h-11 w-11" />
+            <LogoMark className="relative top-[1.5px] h-[41px] w-[41px]" />
             <span className="flex flex-col leading-none">
               <span className="whitespace-nowrap font-display text-[28px]">
                 כשר <span className="text-blue">כשר</span>
@@ -96,7 +96,7 @@ export function Header() {
         <div role="dialog" aria-label="תפריט" className="fixed inset-0 z-[90] flex flex-col bg-ink p-6 text-paper">
           <div className="flex items-center justify-between">
             <span className="flex items-center gap-3 text-white">
-            <LogoMark className="relative top-[1.5px] h-11 w-11" inner="stroke-sky" />
+            <LogoMark className="relative top-[1.5px] h-[41px] w-[41px]" inner="fill-sky" />
             <span className="flex flex-col leading-none">
               <span className="whitespace-nowrap font-display text-[28px] text-white">
                 כשר <span className="text-sky">כשר</span>
