@@ -43,12 +43,12 @@ export function Header() {
           )}
         >
           <SiteLink to="/" aria-label="כשר כשר, ועד רבני אירופה. לדף הבית" className="flex items-center gap-3 text-ink hover:text-ink">
-            <LogoMark className="h-10 w-10" />
+            <LogoMark className="relative top-[1.5px] h-11 w-11" />
             <span className="flex flex-col leading-none">
               <span className="whitespace-nowrap font-display text-[28px]">
                 כשר <span className="text-blue">כשר</span>
               </span>
-              <span className="mt-[5px] text-xs tracking-[.02em] text-muted">ועד רבני אירופה</span>
+              <span className="mt-px text-xs tracking-[.02em] text-muted">ועד רבני אירופה</span>
             </span>
           </SiteLink>
 
@@ -96,12 +96,12 @@ export function Header() {
         <div role="dialog" aria-label="תפריט" className="fixed inset-0 z-[90] flex flex-col bg-ink p-6 text-paper">
           <div className="flex items-center justify-between">
             <span className="flex items-center gap-3 text-white">
-            <LogoMark className="h-10 w-10" inner="stroke-sky" />
+            <LogoMark className="relative top-[1.5px] h-11 w-11" inner="stroke-sky" />
             <span className="flex flex-col leading-none">
               <span className="whitespace-nowrap font-display text-[28px] text-white">
                 כשר <span className="text-sky">כשר</span>
               </span>
-              <span className="mt-[5px] text-xs tracking-[.02em] text-mist">ועד רבני אירופה</span>
+              <span className="mt-px text-xs tracking-[.02em] text-mist">ועד רבני אירופה</span>
             </span>
             </span>
             <button
